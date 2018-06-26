@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19EB20E2399D00FDE8BA /* CanvasView.swift */; };
 		40AF2C9E20A0083B00DDFF2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */; };
 		40AF2CA020A0083B00DDFF2D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9F20A0083B00DDFF2D /* RootViewController.swift */; };
 		40AF2CA220A0083B00DDFF2D /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CA120A0083B00DDFF2D /* DataViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		400E19EB20E2399D00FDE8BA /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		40AF2C9A20A0083B00DDFF2D /* YourTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40AF2C9F20A0083B00DDFF2D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				40AF2CA820A0083B00DDFF2D /* Assets.xcassets */,
 				40AF2CAA20A0083B00DDFF2D /* LaunchScreen.storyboard */,
 				40AF2CAD20A0083B00DDFF2D /* Info.plist */,
+				400E19EB20E2399D00FDE8BA /* CanvasView.swift */,
 			);
 			path = YourTime;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				40AF2CA020A0083B00DDFF2D /* RootViewController.swift in Sources */,
 				40AF2CA420A0083B00DDFF2D /* ModelController.swift in Sources */,
+				400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */,
 				40AF2CA220A0083B00DDFF2D /* DataViewController.swift in Sources */,
 				40AF2C9E20A0083B00DDFF2D /* AppDelegate.swift in Sources */,
 			);
