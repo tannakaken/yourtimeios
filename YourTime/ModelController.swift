@@ -20,14 +20,35 @@ import UIKit
 
 class ModelController: NSObject, UIPageViewControllerDataSource {
 
-    var pageData: [String] = []
+    var pageData: [Clock] = []
 
 
     override init() {
         super.init()
         // Create the data model.
-        let dateFormatter = DateFormatter()
-        pageData = dateFormatter.monthSymbols
+        pageData = [
+            Clock(name: "普通の時間",
+                  ampm: .ampm,
+                  hours: 12,
+                  minutes: 60,
+                  seconds: 60,
+                  dialFromOne: true,
+                  clockwise: true),
+            Clock(name: "24時間制逆進時計",
+                  ampm: .am,
+                  hours: 24,
+                  minutes: 60,
+                  seconds: 60,
+                  dialFromOne: false,
+                  clockwise:false),
+            Clock(name: "革命暦十進時間",
+                  ampm: .am,
+                  hours: 10,
+                  minutes: 100,
+                  seconds: 100,
+                  dialFromOne: false,
+                  clockwise:true),
+        ]
     }
 
     func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {

@@ -9,7 +9,7 @@
 import XCTest
 @testable import YourTime
 
-class YourTimeTests: XCTestCase {
+class ClockTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

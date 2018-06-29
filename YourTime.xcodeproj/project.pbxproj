@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19EB20E2399D00FDE8BA /* CanvasView.swift */; };
+		400E19EE20E4DD3200FDE8BA /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19ED20E4DD3200FDE8BA /* Clock.swift */; };
 		40AF2C9E20A0083B00DDFF2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */; };
 		40AF2CA020A0083B00DDFF2D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9F20A0083B00DDFF2D /* RootViewController.swift */; };
 		40AF2CA220A0083B00DDFF2D /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CA120A0083B00DDFF2D /* DataViewController.swift */; };
@@ -15,7 +16,7 @@
 		40AF2CA720A0083B00DDFF2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40AF2CA520A0083B00DDFF2D /* Main.storyboard */; };
 		40AF2CA920A0083B00DDFF2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40AF2CA820A0083B00DDFF2D /* Assets.xcassets */; };
 		40AF2CAC20A0083B00DDFF2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40AF2CAA20A0083B00DDFF2D /* LaunchScreen.storyboard */; };
-		40AF2CB720A0083C00DDFF2D /* YourTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CB620A0083C00DDFF2D /* YourTimeTests.swift */; };
+		40AF2CB720A0083C00DDFF2D /* ClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CB620A0083C00DDFF2D /* ClockTests.swift */; };
 		40AF2CC220A0083C00DDFF2D /* YourTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CC120A0083C00DDFF2D /* YourTimeUITests.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		400E19EB20E2399D00FDE8BA /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		400E19ED20E4DD3200FDE8BA /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		40AF2C9A20A0083B00DDFF2D /* YourTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40AF2C9F20A0083B00DDFF2D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		40AF2CAB20A0083B00DDFF2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40AF2CAD20A0083B00DDFF2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40AF2CB220A0083C00DDFF2D /* YourTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YourTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		40AF2CB620A0083C00DDFF2D /* YourTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTimeTests.swift; sourceTree = "<group>"; };
+		40AF2CB620A0083C00DDFF2D /* ClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTests.swift; sourceTree = "<group>"; };
 		40AF2CB820A0083C00DDFF2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40AF2CBD20A0083C00DDFF2D /* YourTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YourTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AF2CC120A0083C00DDFF2D /* YourTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourTimeUITests.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				40AF2CAA20A0083B00DDFF2D /* LaunchScreen.storyboard */,
 				40AF2CAD20A0083B00DDFF2D /* Info.plist */,
 				400E19EB20E2399D00FDE8BA /* CanvasView.swift */,
+				400E19ED20E4DD3200FDE8BA /* Clock.swift */,
 			);
 			path = YourTime;
 			sourceTree = "<group>";
@@ -119,7 +122,7 @@
 		40AF2CB520A0083C00DDFF2D /* YourTimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				40AF2CB620A0083C00DDFF2D /* YourTimeTests.swift */,
+				40AF2CB620A0083C00DDFF2D /* ClockTests.swift */,
 				40AF2CB820A0083C00DDFF2D /* Info.plist */,
 			);
 			path = YourTimeTests;
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				400E19EE20E4DD3200FDE8BA /* Clock.swift in Sources */,
 				40AF2CA020A0083B00DDFF2D /* RootViewController.swift in Sources */,
 				40AF2CA420A0083B00DDFF2D /* ModelController.swift in Sources */,
 				400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */,
@@ -277,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40AF2CB720A0083C00DDFF2D /* YourTimeTests.swift in Sources */,
+				40AF2CB720A0083C00DDFF2D /* ClockTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

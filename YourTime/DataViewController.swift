@@ -12,7 +12,13 @@ class DataViewController: UIViewController {
 
     @IBOutlet weak var canvasView: CanvasView!
     @IBOutlet weak var dataLabel: UILabel!
-    var dataObject: String = ""
+    var dataObject: Clock = Clock(name: "普通の時間",
+                                  ampm: .ampm,
+                                  hours: 12,
+                                  minutes: 60,
+                                  seconds: 60,
+                                  dialFromOne: true,
+                                  clockwise: true)
 
 
     override func viewDidLoad() {
@@ -27,19 +33,20 @@ class DataViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.dataLabel!.text = dataObject
+        self.dataLabel!.text = self.dataObject.name
+        self.canvasView.clock = self.dataObject
         self.animation()
     }
     
     func animation() {
         UIView.animate(withDuration: 100, animations: {
-            self.canvasView.angle += 1
+            let now = Date()
+            let millisecond = now.millisecond()
+            self.canvasView.ticktack(millisecond: millisecond)
             self.canvasView.setNeedsDisplay()
         }, completion: {finished in
             self.animation()
         })
     }
-
-
 }
 
