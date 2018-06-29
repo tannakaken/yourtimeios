@@ -27,13 +27,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         super.init()
         // Create the data model.
         pageData = [
-            Clock(name: "普通の時間",
-                  ampm: .ampm,
-                  hours: 12,
-                  minutes: 60,
-                  seconds: 60,
-                  dialFromOne: true,
-                  clockwise: true),
+            Clock.defaultClock(),
             Clock(name: "24時間制逆進時計",
                   ampm: .am,
                   hours: 24,

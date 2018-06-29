@@ -73,4 +73,14 @@ class Clock: NSObject {
         let second = restOfMinute / self.MY_SECOND
         return Time(hour: hour, minute: minute, second: second)
     }
+    
+    class func defaultClock() -> Clock {
+        return Clock(name: "普通の時間",
+                     ampm: .ampm,
+                     hours: 12,
+                     minutes: 60,
+                     seconds: 60,
+                     dialFromOne: true,
+                     clockwise: true)
+    }
 }

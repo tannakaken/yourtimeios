@@ -9,13 +9,7 @@
 import UIKit
 
 class CanvasView: UIView {
-    var clock : Clock = Clock(name: "普通の時間",
-                              ampm: .ampm,
-                              hours: 12,
-                              minutes: 60,
-                              seconds: 60,
-                              dialFromOne: true,
-                              clockwise: true)
+    var clock : Clock = Clock.defaultClock()
     private var hour : Double = 0.0
     private var minute : Int = 0
     private var second : Int = 0
