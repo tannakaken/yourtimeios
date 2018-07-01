@@ -38,6 +38,7 @@ class Clock: NSObject {
     let minutes: Int
     let seconds: Int
     let dialFromOne: Bool
+    let clockwise: Bool
     let sig: Double
     private let ONEDAY: Int64 = 1000 * 60 * 60 * 24
     private let MY_SECOND: Int
@@ -58,6 +59,7 @@ class Clock: NSObject {
         self.minutes = minutes
         self.seconds = seconds
         self.dialFromOne = dialFromOne
+        self.clockwise = clockwise
         self.sig = clockwise ? 1.0 : -1.0
         self.MY_SECOND = Int(self.ONEDAY / Int64(seconds * minutes * hours * ampm.rawValue))
         self.MY_MINUTE = self.MY_SECOND * seconds

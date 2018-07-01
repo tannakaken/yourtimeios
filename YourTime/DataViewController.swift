@@ -13,6 +13,7 @@ class DataViewController: UIViewController {
     @IBOutlet weak var canvasView: CanvasView!
     @IBOutlet weak var dataLabel: UILabel!
     var dataObject: Clock = Clock.defaultClock()
+    var index : Int = 0
 
 
     override func viewDidLoad() {
@@ -28,6 +29,7 @@ class DataViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.dataLabel!.text = self.dataObject.name
+        ClockList.index = self.index
         self.canvasView.clock = self.dataObject
         self.animation()
     }
@@ -42,5 +44,6 @@ class DataViewController: UIViewController {
             self.animation()
         })
     }
+
 }
 

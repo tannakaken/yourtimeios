@@ -1,4 +1,13 @@
 //
+//  ConfModelController.swift
+//  YourTime
+//
+//  Created by Kensaku Tanaka on 2018/07/01.
+//  Copyright © 2018年 Kensaku Tanaka. All rights reserved.
+//
+
+import Foundation
+//
 //  ModelController.swift
 //  YourTime
 //
@@ -17,31 +26,31 @@ import UIKit
  */
 
 
-class ModelController: NSObject, UIPageViewControllerDataSource {
-
-    func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
+class ConfModelController: NSObject, UIPageViewControllerDataSource {
+    
+    func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> ConfDataViewController? {
         // Return the data view controller for the given index.
         if (ClockList.count() == 0) || (index >= ClockList.count()) {
             return nil
         }
-
+        
         // Create a new view controller and pass suitable data.
-        let dataViewController = storyboard.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
-        dataViewController.dataObject = ClockList.clock(at: index)
-        dataViewController.index = index
-        return dataViewController
+        let confDataViewController = storyboard.instantiateViewController(withIdentifier: "ConfDataViewController") as! ConfDataViewController
+        confDataViewController.dataObject = ClockList.clock(at: index)
+        confDataViewController.index = index
+        return confDataViewController
     }
-
-    func indexOfViewController(_ viewController: DataViewController) -> Int {
+    
+    func indexOfViewController(_ viewController: ConfDataViewController) -> Int {
         // Return the index of the given data view controller.
         // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
         return ClockList.index(of: viewController.dataObject) ?? NSNotFound
     }
-
+    
     // MARK: - Page View Controller Data Source
-
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        var index = self.indexOfViewController(viewController as! DataViewController)
+        var index = self.indexOfViewController(viewController as! ConfDataViewController)
         if (index == 0) || (index == NSNotFound) {
             return nil
         }
@@ -49,9 +58,9 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         index -= 1
         return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
     }
-
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var index = self.indexOfViewController(viewController as! DataViewController)
+        var index = self.indexOfViewController(viewController as! ConfDataViewController)
         if index == NSNotFound {
             return nil
         }
@@ -62,6 +71,6 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         }
         return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
     }
-
+    
 }
 

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19EB20E2399D00FDE8BA /* CanvasView.swift */; };
 		400E19EE20E4DD3200FDE8BA /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19ED20E4DD3200FDE8BA /* Clock.swift */; };
+		400E19F420E7861E00FDE8BA /* ConfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F320E7861E00FDE8BA /* ConfViewController.swift */; };
+		400E19F620E7C5BC00FDE8BA /* ClockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F520E7C5BC00FDE8BA /* ClockList.swift */; };
+		400E19F820E8CB6E00FDE8BA /* ConfDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F720E8CB6E00FDE8BA /* ConfDataViewController.swift */; };
+		400E19FA20E8CD5400FDE8BA /* ConfModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F920E8CD5400FDE8BA /* ConfModelController.swift */; };
 		40AF2C9E20A0083B00DDFF2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */; };
 		40AF2CA020A0083B00DDFF2D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9F20A0083B00DDFF2D /* RootViewController.swift */; };
 		40AF2CA220A0083B00DDFF2D /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CA120A0083B00DDFF2D /* DataViewController.swift */; };
@@ -40,6 +44,10 @@
 /* Begin PBXFileReference section */
 		400E19EB20E2399D00FDE8BA /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		400E19ED20E4DD3200FDE8BA /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		400E19F320E7861E00FDE8BA /* ConfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfViewController.swift; sourceTree = "<group>"; };
+		400E19F520E7C5BC00FDE8BA /* ClockList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockList.swift; sourceTree = "<group>"; };
+		400E19F720E8CB6E00FDE8BA /* ConfDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfDataViewController.swift; sourceTree = "<group>"; };
+		400E19F920E8CD5400FDE8BA /* ConfModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfModelController.swift; sourceTree = "<group>"; };
 		40AF2C9A20A0083B00DDFF2D /* YourTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40AF2C9F20A0083B00DDFF2D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +123,10 @@
 				40AF2CAD20A0083B00DDFF2D /* Info.plist */,
 				400E19EB20E2399D00FDE8BA /* CanvasView.swift */,
 				400E19ED20E4DD3200FDE8BA /* Clock.swift */,
+				400E19F320E7861E00FDE8BA /* ConfViewController.swift */,
+				400E19F520E7C5BC00FDE8BA /* ClockList.swift */,
+				400E19F720E8CB6E00FDE8BA /* ConfDataViewController.swift */,
+				400E19F920E8CD5400FDE8BA /* ConfModelController.swift */,
 			);
 			path = YourTime;
 			sourceTree = "<group>";
@@ -270,10 +282,14 @@
 			files = (
 				400E19EE20E4DD3200FDE8BA /* Clock.swift in Sources */,
 				40AF2CA020A0083B00DDFF2D /* RootViewController.swift in Sources */,
+				400E19F620E7C5BC00FDE8BA /* ClockList.swift in Sources */,
+				400E19F820E8CB6E00FDE8BA /* ConfDataViewController.swift in Sources */,
 				40AF2CA420A0083B00DDFF2D /* ModelController.swift in Sources */,
+				400E19F420E7861E00FDE8BA /* ConfViewController.swift in Sources */,
 				400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */,
 				40AF2CA220A0083B00DDFF2D /* DataViewController.swift in Sources */,
 				40AF2C9E20A0083B00DDFF2D /* AppDelegate.swift in Sources */,
+				400E19FA20E8CD5400FDE8BA /* ConfModelController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
