@@ -10,6 +10,9 @@ import UIKit
 
 class ClockTableViewController: UITableViewController {
 
+    
+    @IBOutlet weak var navigation: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,7 +20,8 @@ class ClockTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        navigation.leftBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,6 +67,11 @@ class ClockTableViewController: UITableViewController {
         ClockList.index = indexPath.row
         performSegue(withIdentifier: "toRootView",sender: nil)
     }
+    
+    @IBAction func addClock(_ sender: Any) {
+        
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
