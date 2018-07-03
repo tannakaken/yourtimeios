@@ -36,7 +36,6 @@ class ConfModelController: NSObject, UIPageViewControllerDataSource {
         
         // Create a new view controller and pass suitable data.
         let confDataViewController = storyboard.instantiateViewController(withIdentifier: "ConfDataViewController") as! ConfDataViewController
-        confDataViewController.dataObject = ClockList.clock(at: index)
         confDataViewController.index = index
         return confDataViewController
     }
@@ -44,7 +43,7 @@ class ConfModelController: NSObject, UIPageViewControllerDataSource {
     func indexOfViewController(_ viewController: ConfDataViewController) -> Int {
         // Return the index of the given data view controller.
         // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
-        return ClockList.index(of: viewController.dataObject) ?? NSNotFound
+        return viewController.index
     }
     
     // MARK: - Page View Controller Data Source
