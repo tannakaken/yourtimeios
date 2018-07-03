@@ -20,7 +20,6 @@ class ClockTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        
         navigation.leftBarButtonItem = self.editButtonItem
     }
 
