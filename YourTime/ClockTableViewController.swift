@@ -43,17 +43,15 @@ class ClockTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ClockCell", for: indexPath)
-        let width = cell.bounds.width
         // Configure the cell...
         cell.textLabel?.text = ClockList.clock(at: indexPath.row).name
-        let button = UIButton(frame: CGRect(x: width - 55, y: 5, width: 50, height: 30))
+        let button = UIButton(frame: CGRect(x: tableView.frame.width - 40, y: cell.center.y - 15, width: 40, height: 30))
         button.backgroundColor = .black
         button.setTitleColor(.white, for: [.normal])
         button.setTitle("設定", for: [.normal])
         button.tag = indexPath.row
         button.addTarget(self, action: #selector(tapButton(sender:)), for: .touchUpInside)
         cell.contentView.addSubview(button)
-
         return cell
     }
     
