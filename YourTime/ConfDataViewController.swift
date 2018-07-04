@@ -8,89 +8,49 @@
 
 import UIKit
 
-class ConfDataViewController: UIViewController {
+class ConfDataViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var index : Int = NSNotFound
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var ampmField: UISegmentedControl!
-    @IBOutlet weak var hoursPicker: UIPickerView!
-    @IBOutlet weak var minutesPicker: UIPickerView!
-    @IBOutlet weak var secondsPicker: UIPickerView!
+    @IBOutlet weak var timePicker: UIPickerView!
     @IBOutlet weak var dialFromOneField: UISegmentedControl!
     @IBOutlet weak var clockwiseField: UISegmentedControl!
     
-    class PickerController: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
-        var data : [Int]
-        var index: Int
-        init(data: [Int], index: Int) {
-            self.data = data
-            self.index = index
-        }
-        
-        func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return 1
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return self.data.count
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return String(self.data[row])
-        }
+    let data : [[Int]] = [
+        (Array<Int>)(1...20),
+        (Array<Int>)(1...100),
+        (Array<Int>)(1...100)
+    ]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return data.count
     }
     
-    class HoursPickerController: PickerController {
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            let newClock = Clock(name: ClockList.clock(at: index).name,
-                                 ampm: ClockList.clock(at: index).ampm,
-                                 hours: self.data[row],
-                                 minutes: ClockList.clock(at: index).minutes,
-                                 seconds: ClockList.clock(at: index).seconds,
-                                 dialFromOne: ClockList.clock(at: index).dialFromOne,
-                                 clockwise: ClockList.clock(at: index).clockwise)
-            ClockList.set(clock: newClock, at: index)
-        }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return data[component].count
     }
     
-    class MinutesPickerController: PickerController {
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            let newClock = Clock(name: ClockList.clock(at: index).name,
-                                 ampm: ClockList.clock(at: index).ampm,
-                                 hours: ClockList.clock(at: index).hours,
-                                 minutes: self.data[row],
-                                 seconds: ClockList.clock(at: index).seconds,
-                                 dialFromOne: ClockList.clock(at: index).dialFromOne,
-                                 clockwise: ClockList.clock(at: index).clockwise)
-            ClockList.set(clock: newClock, at: index)
-        }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(data[component][row])
     }
     
-    class SecondsPickerController: PickerController {
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            let newClock = Clock(name: ClockList.clock(at: index).name,
-                                 ampm: ClockList.clock(at: index).ampm,
-                                 hours: ClockList.clock(at: index).hours,
-                                 minutes: ClockList.clock(at: index).minutes,
-                                 seconds: self.data[row],
-                                 dialFromOne: ClockList.clock(at: index).dialFromOne,
-                                 clockwise: ClockList.clock(at: index).clockwise)
-            ClockList.set(clock: newClock, at: index)
-        }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let clock = ClockList.clock(at: self.index)
+        let newClock = Clock(name: clock.name,
+                             ampm: clock.ampm,
+                             hours: component == 0 ? row + 1 : clock.hours,
+                             minutes: component == 1 ? row + 1 : clock.minutes,
+                             seconds: component == 2 ? row + 1 : clock.seconds,
+                             dialFromOne: clock.dialFromOne,
+                             clockwise: clock.clockwise)
+        ClockList.set(clock: newClock, at: self.index)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let hoursPickerController = HoursPickerController(data: (Array<Int>)(1...20), index:index)
-        hoursPicker.delegate = hoursPickerController
-        hoursPicker.dataSource = hoursPickerController
-        let minutesPickerController = MinutesPickerController(data: (Array<Int>)(1...100), index:index)
-        minutesPicker.delegate = minutesPickerController
-        minutesPicker.dataSource = minutesPickerController
-        let secondsPickerController = SecondsPickerController(data: (Array<Int>)(1...100), index:index)
-        secondsPicker.delegate = secondsPickerController
-        secondsPicker.dataSource = secondsPickerController
+        timePicker.delegate = self
+        timePicker.dataSource = self
         // Do any additional setup after loading the view.
         
     }
@@ -98,11 +58,14 @@ class ConfDataViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         ClockList.index = self.index
-        nameField.text = ClockList.clock(at: self.index).name
-        ampmField.selectedSegmentIndex = ClockList.clock(at: self.index).ampm.rawValue - 1
-        
-        dialFromOneField.selectedSegmentIndex = ClockList.clock(at: self.index).dialFromOne ? 1 : 0
-        clockwiseField.selectedSegmentIndex = ClockList.clock(at: self.index).clockwise ? 1 : 0
+        let clock = ClockList.clock(at: self.index)
+        nameField.text = clock.name
+        ampmField.selectedSegmentIndex = clock.ampm.rawValue - 1
+        timePicker.selectRow(clock.hours-1, inComponent: 0, animated: false)
+        timePicker.selectRow(clock.minutes-1, inComponent: 1, animated: false)
+        timePicker.selectRow(clock.seconds-1, inComponent: 2, animated: false)
+        dialFromOneField.selectedSegmentIndex = clock.dialFromOne ? 1 : 0
+        clockwiseField.selectedSegmentIndex = clock.clockwise ? 1 : 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,47 +75,51 @@ class ConfDataViewController: UIViewController {
     }
     
     @IBAction func nameChanged(_ sender: UITextField) {
+        let clock = ClockList.clock(at: self.index)
         let newClock = Clock(name: sender.text!,
-                             ampm: ClockList.clock(at: self.index).ampm,
-                             hours: ClockList.clock(at: self.index).hours,
-                             minutes: ClockList.clock(at: self.index).minutes,
-                             seconds: ClockList.clock(at: self.index).seconds,
-                             dialFromOne: ClockList.clock(at: self.index).dialFromOne,
-                             clockwise: ClockList.clock(at: self.index).clockwise)
+                             ampm: clock.ampm,
+                             hours: clock.hours,
+                             minutes: clock.minutes,
+                             seconds: clock.seconds,
+                             dialFromOne: clock.dialFromOne,
+                             clockwise: clock.clockwise)
         ClockList.set(clock: newClock, at: self.index)
     }
     
     @IBAction func ampmChanged(_ sender: UISegmentedControl) {
-        let newClock = Clock(name: ClockList.clock(at: self.index).name,
+        let clock = ClockList.clock(at: self.index)
+        let newClock = Clock(name: clock.name,
                              ampm: Ampm(rawValue: sender.selectedSegmentIndex+1)!,
-                             hours: ClockList.clock(at: self.index).hours,
-                             minutes: ClockList.clock(at: self.index).minutes,
-                             seconds: ClockList.clock(at: self.index).seconds,
-                             dialFromOne: ClockList.clock(at: self.index).dialFromOne,
-                             clockwise: ClockList.clock(at: self.index).clockwise)
+                             hours: clock.hours,
+                             minutes: clock.minutes,
+                             seconds: clock.seconds,
+                             dialFromOne: clock.dialFromOne,
+                             clockwise: clock.clockwise)
         ClockList.set(clock: newClock, at: self.index)
     }
     
 
     
     @IBAction func dialFromOneChanged(_ sender: UISegmentedControl) {
-        let newClock = Clock(name: ClockList.clock(at: self.index).name,
-                             ampm: ClockList.clock(at: self.index).ampm,
-                             hours: ClockList.clock(at: self.index).hours,
-                             minutes: ClockList.clock(at: self.index).minutes,
-                             seconds: ClockList.clock(at: self.index).seconds,
+        let clock = ClockList.clock(at: self.index)
+        let newClock = Clock(name: clock.name,
+                             ampm: clock.ampm,
+                             hours: clock.hours,
+                             minutes: clock.minutes,
+                             seconds: clock.seconds,
                              dialFromOne: sender.selectedSegmentIndex == 1,
-                             clockwise: ClockList.clock(at: self.index).clockwise)
+                             clockwise: clock.clockwise)
         ClockList.set(clock: newClock, at: self.index)
     }
     
     @IBAction func clockwiseChanged(_ sender: UISegmentedControl) {
-        let newClock = Clock(name: ClockList.clock(at: self.index).name,
-                             ampm: ClockList.clock(at: self.index).ampm,
-                             hours: ClockList.clock(at: self.index).hours,
-                             minutes: ClockList.clock(at: self.index).minutes,
-                             seconds: ClockList.clock(at: self.index).seconds,
-                             dialFromOne: ClockList.clock(at: self.index).dialFromOne,
+        let clock = ClockList.clock(at: self.index)
+        let newClock = Clock(name: clock.name,
+                             ampm: clock.ampm,
+                             hours: clock.hours,
+                             minutes: clock.minutes,
+                             seconds: clock.seconds,
+                             dialFromOne: clock.dialFromOne,
                              clockwise: sender.selectedSegmentIndex == 1)
         ClockList.set(clock: newClock, at: self.index)
     }
