@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfDataViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ConfDataViewController: ViewWithBannerAdController, UIPickerViewDelegate, UIPickerViewDataSource {
     var index : Int = NSNotFound
 
     @IBOutlet weak var nameField: UITextField!
@@ -52,7 +52,6 @@ class ConfDataViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         timePicker.delegate = self
         timePicker.dataSource = self
         // Do any additional setup after loading the view.
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
