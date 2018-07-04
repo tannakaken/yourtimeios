@@ -7,6 +7,7 @@ target 'YourTime' do
 
   # Pods for YourTime
   pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
 
   target 'YourTimeTests' do
     inherit! :search_paths
