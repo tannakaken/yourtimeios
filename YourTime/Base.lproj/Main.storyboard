@@ -257,10 +257,10 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="+"/>
+                                            <connections>
+                                                <action selector="addClock:" destination="qE1-au-qQN" eventType="touchUpInside" id="JII-8E-uaG"/>
+                                            </connections>
                                         </button>
-                                        <connections>
-                                            <action selector="addClock:" destination="qE1-au-qQN" id="dim-21-gFA"/>
-                                        </connections>
                                     </barButtonItem>
                                 </navigationItem>
                             </items>
@@ -294,6 +294,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="psJ-Ld-pOP"/>
         <segue reference="LYG-HN-GQ5"/>
-        <segue reference="816-wd-CA8"/>
+        <segue reference="te4-gv-n5o"/>
     </inferredMetricsTieBreakers>
 </document>

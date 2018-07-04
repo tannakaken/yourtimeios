@@ -102,4 +102,16 @@ struct ClockList {
     static func set(clock: Clock, at index: Int) {
         self.clocks[index] = clock
     }
+    
+    static func remove(at index: Int) -> Clock {
+        return self.clocks.remove(at: index)
+    }
+    
+    static func insert(_ clock: Clock, at index: Int) {
+        self.clocks.insert(clock, at: index)
+    }
+    
+    static func append(_ clock: Clock) {
+        self.clocks.append(clock)
+    }
 }
