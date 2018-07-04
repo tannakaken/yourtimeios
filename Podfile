@@ -8,6 +8,8 @@ target 'YourTime' do
   # Pods for YourTime
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  pod 'Fabric', '~> 1.7.6'
+  pod 'Crashlytics', '~> 3.10.1'
 
   target 'YourTimeTests' do
     inherit! :search_paths

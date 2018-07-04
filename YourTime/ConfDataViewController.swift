@@ -99,7 +99,7 @@ class ConfDataViewController: UIViewController {
         super.viewWillAppear(animated)
         ClockList.index = self.index
         nameField.text = ClockList.clock(at: self.index).name
-        ampmField.selectedSegmentIndex = ClockList.clock(at: self.index).ampm.rawValue
+        ampmField.selectedSegmentIndex = ClockList.clock(at: self.index).ampm.rawValue - 1
         
         dialFromOneField.selectedSegmentIndex = ClockList.clock(at: self.index).dialFromOne ? 1 : 0
         clockwiseField.selectedSegmentIndex = ClockList.clock(at: self.index).clockwise ? 1 : 0
@@ -124,7 +124,7 @@ class ConfDataViewController: UIViewController {
     
     @IBAction func ampmChanged(_ sender: UISegmentedControl) {
         let newClock = Clock(name: ClockList.clock(at: self.index).name,
-                             ampm: Ampm(rawValue: sender.selectedSegmentIndex)!,
+                             ampm: Ampm(rawValue: sender.selectedSegmentIndex+1)!,
                              hours: ClockList.clock(at: self.index).hours,
                              minutes: ClockList.clock(at: self.index).minutes,
                              seconds: ClockList.clock(at: self.index).seconds,
