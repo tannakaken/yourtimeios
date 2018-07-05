@@ -9,39 +9,20 @@
 import Foundation
 
 struct ClockList {
-    static var index: Int = 0;
+    static var index: Int = 0 {
+        didSet {
+            if index < 0 || count() <= index {
+                error_message = "不正なインデックスが設定されたので修正します"
+                index = 0
+            }
+        }
+    }
+    static var error_message: String? = nil
     private static var clocks: [Clock] = load()
     
     private init() {}
     
-    static private func load() -> [Clock] {
-        let manager = FileManager.default
-        if let dir = manager.urls( for: .documentDirectory, in: .userDomainMask ).first {
-            let filePath = dir.appendingPathComponent("clocks.txt")
-            do {
-                let text = try String( contentsOf: filePath, encoding: String.Encoding.utf8 )
-                let data = text.components(separatedBy: "\n").map {str in return str.components(separatedBy: "\t")}
-                var clocks : [Clock] = []
-                for datum in data {
-                    if datum.count == 1 {
-                        break
-                    }
-                    clocks.append(Clock(name:datum[0],
-                                        ampm: Ampm(rawValue: Int(datum[1])!)!,
-                                        hours: Int(datum[2])!,
-                                        minutes: Int(datum[3])!,
-                                        seconds: Int(datum[4])!,
-                                        dialFromOne: Bool(datum[5])!,
-                                        clockwise: Bool(datum[6])!))
-                }
-                return clocks
-            } catch {
-                print("can't open file")
-            }
-            
-        } else {
-            fatalError()
-        }
+    static private func defaultClocks() -> [Clock] {
         return [
             Clock.defaultClock(),
             Clock(name: "24時間制逆進時計",
@@ -59,6 +40,66 @@ struct ClockList {
                   dialFromOne: false,
                   clockwise:true),
         ]
+    }
+    
+    static private func load() -> [Clock] {
+        let manager = FileManager.default
+        if let dir = manager.urls( for: .documentDirectory, in: .userDomainMask ).first {
+            let filePath = dir.appendingPathComponent("clocks.txt")
+            if (!manager.fileExists(atPath: filePath.path)) {
+                print("initial clocks")
+                return defaultClocks()
+            }
+            do {
+                let text = try String( contentsOf: filePath, encoding: String.Encoding.utf8 )
+                let lines = text.components(separatedBy: "\n")
+                let data = lines[0..<(lines.count-1)].map {str in return str.components(separatedBy: "\t")}
+                var clocks : [Clock] = []
+                for datum in data {
+                    if (datum.count != 7) {
+                        error_message = "設定ファイルが壊れていました。"
+                        print("can't parse data")
+                        return defaultClocks()
+                    }
+                    if
+                    let ampmValue = Int(datum[1]),
+                    let ampm = Ampm(rawValue: ampmValue),
+                    let hours = Int(datum[2]),
+                    let minutes = Int(datum[3]),
+                    let seconds = Int(datum[4]),
+                    let dialFromOne = Bool(datum[5]),
+                    let clockwise = Bool(datum[6]) {
+                        clocks.append(Clock(name:datum[0],
+                                            ampm: ampm,
+                                            hours: hours,
+                                            minutes: minutes,
+                                            seconds: seconds,
+                                            dialFromOne: dialFromOne,
+                                            clockwise: clockwise
+                                      )
+                        )
+                    } else {
+                        error_message = "設定ファイルが壊れていました。"
+                        print("can't parse data")
+                        return defaultClocks()
+                    }
+                }
+                if clocks.count == 0 {
+                    error_message = "設定ファイルが失われました。"
+                    print("lost data")
+                    return defaultClocks()
+                }
+                return clocks
+            } catch {
+                error_message = "設定ファイルを読めませんでした。"
+                print("can't open file")
+                return defaultClocks()
+            }
+        } else {
+            error_message = "設定フォルダを読めませんでした。"
+            print("can't open directory")
+            return defaultClocks()
+        }
     }
     
     static func save() {
@@ -80,10 +121,12 @@ struct ClockList {
             do {
                 try text.write( to: filePath, atomically: false, encoding: String.Encoding.utf8 )
             } catch {
-                fatalError()
+                error_message = "設定ファイルに書き込めませんでした"
+                print("can't open file")
             }
         } else {
-            fatalError()
+            error_message = "設定フォルダに書き込めませんでした"
+            print("can't open directory")
         }
     }
     
@@ -104,6 +147,10 @@ struct ClockList {
     }
     
     static func remove(at index: Int) -> Clock {
+        if count() == 1 {
+            assert(false, "ClockListの要素を0にすることは禁止されています。この関数より前でチェックすべきです。")
+            return Clock.defaultClock()
+        }
         return self.clocks.remove(at: index)
     }
     

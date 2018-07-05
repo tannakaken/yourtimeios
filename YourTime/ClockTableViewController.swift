@@ -22,6 +22,18 @@ class ClockTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         navigation.leftBarButtonItem = self.editButtonItem
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if let error_message = ClockList.error_message {
+            print(error_message)
+            let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(ok)
+            self.present(alert, animated: true)
+            ClockList.error_message = nil
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -68,6 +80,7 @@ class ClockTableViewController: UITableViewController {
     @IBAction func addClock(_ sender: Any) {
         ClockList.append(Clock.defaultClock())
         tableView.insertRows(at: [IndexPath(row: ClockList.count()-1, section: 0)], with: .fade)
+        tableView.reloadData()
     }
 
     // Override to support conditional editing of the table view.
@@ -78,18 +91,28 @@ class ClockTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let _ = ClockList.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if ClockList.count() > 1 {
+                let _ = ClockList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } else {
+                let error_message = "時間がなくなってしまいます！"
+                let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(ok)
+                self.present(alert, animated: true)
+            }
         } else if editingStyle == .insert {
             ClockList.insert(Clock.defaultClock(), at: indexPath.row)
             tableView.insertRows(at: [indexPath], with: .fade)
         }
+        tableView.reloadData()
     }
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let clock = ClockList.remove(at: fromIndexPath.row)
         ClockList.insert(clock, at: to.row)
+        tableView.reloadData()
     }
 
     // Override to support conditional rearranging of the table view.

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RootViewController: UIViewController, UIPageViewControllerDelegate {
+class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate {
 
     var pageViewController: UIPageViewController?
 

@@ -18,7 +18,7 @@ class ConfDataViewController: ViewWithBannerAdController, UIPickerViewDelegate, 
     @IBOutlet weak var clockwiseField: UISegmentedControl!
     
     let data : [[Int]] = [
-        (Array<Int>)(1...20),
+        (Array<Int>)(1...100),
         (Array<Int>)(1...100),
         (Array<Int>)(1...100)
     ]
@@ -75,29 +75,57 @@ class ConfDataViewController: ViewWithBannerAdController, UIPickerViewDelegate, 
     
     @IBAction func nameChanged(_ sender: UITextField) {
         let clock = ClockList.clock(at: self.index)
-        let newClock = Clock(name: sender.text!,
-                             ampm: clock.ampm,
-                             hours: clock.hours,
-                             minutes: clock.minutes,
-                             seconds: clock.seconds,
-                             dialFromOne: clock.dialFromOne,
-                             clockwise: clock.clockwise)
-        ClockList.set(clock: newClock, at: self.index)
+        if let name = sender.text {
+            if name.contains("\n") || name.contains("¥t") {
+                let error_message = "壊れた時間名のデータを修復します"
+                sender.text = clock.name
+                print(error_message)
+                let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(ok)
+                self.present(alert, animated: true)
+                return
+            }
+            let newClock = Clock(name: name,
+                                 ampm: clock.ampm,
+                                 hours: clock.hours,
+                                 minutes: clock.minutes,
+                                 seconds: clock.seconds,
+                                 dialFromOne: clock.dialFromOne,
+                                 clockwise: clock.clockwise)
+            ClockList.set(clock: newClock, at: self.index)
+        } else {
+            let error_message = "失われた時間名のデータを修復します"
+            print(error_message)
+            let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(ok)
+            self.present(alert, animated: true)
+            sender.text = ClockList.clock(at: self.index).name
+        }
     }
     
     @IBAction func ampmChanged(_ sender: UISegmentedControl) {
         let clock = ClockList.clock(at: self.index)
-        let newClock = Clock(name: clock.name,
-                             ampm: Ampm(rawValue: sender.selectedSegmentIndex+1)!,
-                             hours: clock.hours,
-                             minutes: clock.minutes,
-                             seconds: clock.seconds,
-                             dialFromOne: clock.dialFromOne,
-                             clockwise: clock.clockwise)
-        ClockList.set(clock: newClock, at: self.index)
+        if let ampm = Ampm(rawValue: sender.selectedSegmentIndex+1) {
+            let newClock = Clock(name: clock.name,
+                                 ampm: ampm,
+                                 hours: clock.hours,
+                                 minutes: clock.minutes,
+                                 seconds: clock.seconds,
+                                 dialFromOne: clock.dialFromOne,
+                                 clockwise: clock.clockwise)
+            ClockList.set(clock: newClock, at: self.index)
+        } else {
+            let error_message = "壊れた午数のデータを修復します"
+            print(error_message)
+            let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(ok)
+            self.present(alert, animated: true)
+            sender.selectedSegmentIndex = ClockList.clock(at: self.index).ampm.rawValue - 1
+        }
     }
-    
-
     
     @IBAction func dialFromOneChanged(_ sender: UISegmentedControl) {
         let clock = ClockList.clock(at: self.index)
