@@ -110,9 +110,11 @@ class ClockTableViewController: UITableViewController {
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let clock = ClockList.remove(at: fromIndexPath.row)
-        ClockList.insert(clock, at: to.row)
-        tableView.reloadData()
+        if (fromIndexPath.row != to.row) {
+            let clock = ClockList.remove(at: fromIndexPath.row)
+            ClockList.insert(clock, at: to.row)
+            tableView.reloadData()
+        }
     }
 
     // Override to support conditional rearranging of the table view.

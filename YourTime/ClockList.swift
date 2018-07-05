@@ -149,7 +149,6 @@ struct ClockList {
     static func remove(at index: Int) -> Clock {
         if count() == 1 {
             assert(false, "ClockListの要素を0にすることは禁止されています。この関数より前でチェックすべきです。")
-            return Clock.defaultClock()
         }
         return self.clocks.remove(at: index)
     }
