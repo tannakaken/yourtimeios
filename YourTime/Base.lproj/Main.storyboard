@@ -284,6 +284,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vRs-2H-wPW"/>
                     </view>
+                    <connections>
+                        <outlet property="popup" destination="GhR-vb-ZIs" id="gfh-Gn-yPu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iN4-oT-K0d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -335,13 +338,34 @@
                                             <action selector="tapQuestion:" destination="S4R-Ja-viH" eventType="touchUpInside" id="n12-A8-TBW"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJ8-Kr-Aa6">
+                                        <rect key="frame" x="30" y="433" width="30" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="!"/>
+                                        <connections>
+                                            <action selector="tapExclamation:" destination="S4R-Ja-viH" eventType="touchUpInside" id="h2g-jz-w9z"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUb-EX-YsE">
+                                        <rect key="frame" x="68" y="8" width="199" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="OW7-hY-b2v" firstAttribute="bottom" secondItem="cj5-G4-63K" secondAttribute="bottom" constant="100" id="2od-us-iLY"/>
+                                    <constraint firstItem="oJ8-Kr-Aa6" firstAttribute="leading" secondItem="OW7-hY-b2v" secondAttribute="leading" constant="30" id="GrI-7U-koW"/>
                                     <constraint firstItem="OW7-hY-b2v" firstAttribute="trailing" secondItem="cj5-G4-63K" secondAttribute="trailing" constant="30" id="LWb-T9-ynb"/>
+                                    <constraint firstItem="OW7-hY-b2v" firstAttribute="bottom" secondItem="oJ8-Kr-Aa6" secondAttribute="bottom" constant="100" id="m4y-z2-LSI"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="OW7-hY-b2v"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="e9e-Fk-Iqa" appends="YES" id="TfB-iZ-WO7"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.36048875357032295" green="0.26694168107839183" blue="0.9680677056312561" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -360,9 +384,16 @@
                     <connections>
                         <outlet property="canvasView" destination="s1b-V9-EN7" id="Azo-Xa-5tF"/>
                         <outlet property="clockName" destination="cx9-Cz-tmT" id="Pij-ru-xxJ"/>
+                        <outlet property="doubleTapRecognizer" destination="e9e-Fk-Iqa" id="2Xe-Ui-H0g"/>
+                        <outlet property="easterEggLabel" destination="RUb-EX-YsE" id="HTo-Lz-xkW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmD-Rr-ZGN" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="e9e-Fk-Iqa">
+                    <connections>
+                        <action selector="doubleTapCanvas:" destination="S4R-Ja-viH" id="fDn-3C-CpA"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="596" y="-243.32833583208398"/>
         </scene>

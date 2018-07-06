@@ -10,13 +10,14 @@ import UIKit
 
 class CanvasView: UIView {
     var clock : Clock = Clock.defaultClock()
+    var foregroundColor : UIColor = .black
     private var hour : Double = 0.0
     private var minute : Int = 0
     private var second : Int = 0
 
     override func draw(_ rect: CGRect) {
         // Drawing code
-        UIColor(red: 64 / 255, green: 120 / 255, blue: 192 / 255, alpha: 1).setFill()
+        self.foregroundColor.setStroke()
         let hourLength = self.bounds.midX * 0.5
         let hourUnitAngle = self.unitAngle(totalNum: clock.hours)
         let hourRadian = clock.sig * self.hour * hourUnitAngle
@@ -60,7 +61,8 @@ class CanvasView: UIView {
     private func drawDial() {
         let fontSize = CGFloat(10)
         let attributes: [NSAttributedStringKey : AnyObject] = [
-            .font: UIFont.systemFont(ofSize: fontSize)
+            .font: UIFont.systemFont(ofSize: fontSize),
+            .foregroundColor: self.foregroundColor
         ]
         let radius = self.bounds.midX * 0.9
         let angle = self.clock.sig * self.unitAngle(totalNum: self.clock.hours)

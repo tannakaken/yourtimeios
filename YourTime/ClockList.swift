@@ -9,12 +9,13 @@
 import Foundation
 
 struct ClockList {
-    static var index: Int = 0 {
+    static var index: Int = UserDefaults.standard.integer(forKey: "index") {
         didSet {
             if index < 0 || count() <= index {
                 error_message = "不正なインデックスが設定されたので修正します"
                 index = 0
             }
+            UserDefaults.standard.set(self.index, forKey: "index")
         }
     }
     static var error_message: String? = nil

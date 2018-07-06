@@ -10,9 +10,12 @@ import UIKit
 
 class ModalController: UIViewController {
     
+    @IBOutlet weak var popup: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        popup.layer.cornerRadius = popup.frame.size.width * 0.05
     }
 
     override func didReceiveMemoryWarning() {
