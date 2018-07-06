@@ -45,6 +45,12 @@ class DataViewController: ViewWithBannerAdController {
             self.animation()
         })
     }
-
+    @IBAction func tapQuestion(_ sender: Any) {
+        if let storyboard = self.storyboard {
+            let next = storyboard.instantiateViewController(withIdentifier: "Modal")
+            next.modalPresentationStyle = .overCurrentContext
+            present(next, animated: true)
+        }
+    }
 }
 
