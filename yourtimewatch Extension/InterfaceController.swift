@@ -20,12 +20,21 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             }
         }
     }
-    var index = 0 {
-        didSet {
-            if self.index >= clocks.count {
-                self.index = 0
+    var _index = 0
+    var index: Int {
+        get {
+            if self._index >= clocks.count {
+                self._index = 0
             }
-            UserDefaults.standard.set(self.index, forKey: "index")
+            return self._index
+        }
+        set {
+            if newValue >= clocks.count {
+                self._index = 0
+            } else {
+                self._index = newValue
+            }
+            UserDefaults.standard.set(self._index, forKey: "index")
         }
     }
     var isBlackBackground: Bool = UserDefaults.standard.bool(forKey: "isBlackBackground")
