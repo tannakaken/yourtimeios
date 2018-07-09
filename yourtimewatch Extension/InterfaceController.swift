@@ -47,8 +47,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var centerX: CGFloat = 0.0
     var centerY: CGFloat = 0.0
-    var radius: CGFloat = 0.0
-    
     
     @IBOutlet var image: WKInterfaceImage!
     override func awake(withContext context: Any?) {
@@ -80,7 +78,6 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         super.willActivate()
         centerX = self.contentFrame.width / 2
         centerY = self.contentFrame.height / 2
-        radius = CGFloat.minimum(centerX, centerY)
         self.draw()
         self.animation()
     }
@@ -96,16 +93,16 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             let now = clocks[index].calc(time: Date().millisecond())
             let hourUnitAngle = Clock.unitAngle(totalNum: clocks[index].hours)
             let hourRadian = clocks[index].sig * now.hour * hourUnitAngle
-            let hourLength = radius * 0.3
-            drawNeedle(width: CGFloat(3.0), length: hourLength, radian: hourRadian, context: context)
+            let hourRatio = CGFloat(0.3)
+            drawNeedle(width: CGFloat(3.0), ratio: hourRatio, radian: hourRadian, context: context)
             let minuteUnitAngle = Clock.unitAngle(totalNum: clocks[index].minutes)
             let minuteRadian = clocks[index].sig * Double(now.minute) * minuteUnitAngle
-            let minuteLength = radius * 0.5
-            drawNeedle(width: CGFloat(1.5), length: minuteLength, radian: minuteRadian, context: context)
+            let minuteRatio = CGFloat(0.5)
+            drawNeedle(width: CGFloat(1.5), ratio: minuteRatio, radian: minuteRadian, context: context)
             let secondUnitAngle = Clock.unitAngle(totalNum: clocks[index].seconds)
             let secondRadian = clocks[index].sig * Double(now.second) * secondUnitAngle
-            let secondLength = radius * 0.8
-            drawNeedle(width: CGFloat(0.8), length: secondLength, radian: secondRadian, context: context)
+            let secondRatio = CGFloat(0.8)
+            drawNeedle(width: CGFloat(0.8), ratio: secondRatio, radian: secondRadian, context: context)
             self.setTitle(clocks[index].name)
             drawDial()
             if let cgImage:CGImage = context.makeImage() {
@@ -122,22 +119,22 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             .font: UIFont.systemFont(ofSize: fontSize),
             .foregroundColor: foregroundColor
         ]
-        let dialRadius = radius * 0.9
+        let ratio = 0.9
         let angle = clocks[index].sig * Clock.unitAngle(totalNum: clocks[index].hours)
         let range = clocks[index].dialFromOne ? 1...clocks[index].hours : 0...(clocks[index].hours-1)
         for i in range {
-            let x = centerX + dialRadius * CGFloat(sin(Double(i) * angle)) - fontSize/2
-            let y = centerY - dialRadius * CGFloat(cos(Double(i) * angle)) - fontSize/2
+            let x = centerX + centerX * ratio * CGFloat(sin(Double(i) * angle)) - fontSize/2
+            let y = centerY - centerY * ratio * CGFloat(cos(Double(i) * angle)) - fontSize/2
             NSAttributedString(string: "\(i)", attributes:attributes).draw(at: CGPoint(x:x,y:y))
         }
     }
     
-    func drawNeedle(width: CGFloat, length: CGFloat, radian: Double, context: CGContext) {
+    func drawNeedle(width: CGFloat, ratio: CGFloat, radian: Double, context: CGContext) {
         context.setStrokeColor(foregroundColor.cgColor)
         context.move(to: CGPoint(x:centerX,y:centerY))
         context.setLineWidth(width)
-        let dx = length * CGFloat(sin(radian))
-        let dy = -length * CGFloat(cos(radian))
+        let dx = centerX * ratio * CGFloat(sin(radian))
+        let dy = -centerY * ratio * CGFloat(cos(radian))
         context.addLine(to: CGPoint(x: centerX + dx, y: centerY+dy))
         context.strokePath()
     }
