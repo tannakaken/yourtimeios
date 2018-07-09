@@ -119,7 +119,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             .font: UIFont.systemFont(ofSize: fontSize),
             .foregroundColor: foregroundColor
         ]
-        let ratio = 0.9
+        let ratio = CGFloat(0.9)
         let angle = clocks[index].sig * Clock.unitAngle(totalNum: clocks[index].hours)
         let range = clocks[index].dialFromOne ? 1...clocks[index].hours : 0...(clocks[index].hours-1)
         for i in range {
