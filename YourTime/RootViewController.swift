@@ -45,11 +45,6 @@ class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate,
             session.activate()
         }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        ClockList.save()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

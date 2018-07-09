@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 class ClockTableViewController: UITableViewController {
 
@@ -92,6 +93,8 @@ class ClockTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if ClockList.count() > 1 {
+                let session = WCSession.default
+                session.transferUserInfo(["remove":indexPath.row])
                 let _ = ClockList.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             } else {
@@ -110,6 +113,8 @@ class ClockTableViewController: UITableViewController {
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let session = WCSession.default
+        session.transferUserInfo(["from":fromIndexPath.row, "to":to.row])
         if (fromIndexPath.row != to.row) {
             let clock = ClockList.remove(at: fromIndexPath.row)
             ClockList.insert(clock, at: to.row)

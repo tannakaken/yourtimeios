@@ -174,6 +174,33 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         }
     }
     
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
+        if let val = userInfo["remove"] {
+            let removedIndex = val as! Int
+            if index > removedIndex {
+                index -= 1
+            } else if index == removedIndex {
+                index = 0
+            }
+        }
+        if
+            let fromVal = userInfo["from"],
+            let toVal = userInfo["to"] {
+            let fromIndex = fromVal as! Int
+            let toIndex = toVal as! Int
+            if index == fromIndex {
+                index = toIndex
+            } else if (fromIndex - index) * (toIndex - index) < 0 {
+                if fromIndex < toIndex {
+                    index -= 1
+                } else {
+                    index += 1
+                }
+            }
+        }
+        
+    }
+    
     func parse(url: URL) -> [Clock] {
         var result : [Clock] = []
         do {

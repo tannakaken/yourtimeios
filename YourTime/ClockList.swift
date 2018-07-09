@@ -128,20 +128,25 @@ struct ClockList {
     
     static func set(clock: Clock, at index: Int) {
         self.clocks[index] = clock
+        self.save()
     }
     
     static func remove(at index: Int) -> Clock {
         if count() == 1 {
             assert(false, "ClockListの要素を0にすることは禁止されています。この関数より前でチェックすべきです。")
         }
-        return self.clocks.remove(at: index)
+        let removedClock = self.clocks.remove(at: index)
+        self.save()
+        return removedClock
     }
     
     static func insert(_ clock: Clock, at index: Int) {
         self.clocks.insert(clock, at: index)
+        self.save()
     }
     
     static func append(_ clock: Clock) {
         self.clocks.append(clock)
+        self.save()
     }
 }
