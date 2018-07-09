@@ -14,7 +14,25 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="yourtimewatch" customModuleProvider="target">
                     <items>
-                        <imageView height="150" alignment="left" id="2at-iI-B0k"/>
+                        <imageView height="150" alignment="left" id="2at-iI-B0k">
+                            <gestureRecognizers>
+                                <swipeGestureRecognizer id="c0Q-la-OP8">
+                                    <connections>
+                                        <action selector="onSwipeRight:" destination="AgC-eL-Hgc" id="yUn-8Q-ghl"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                                <swipeGestureRecognizer direction="2" id="2aY-hB-XyG">
+                                    <connections>
+                                        <action selector="onSwipeLeft:" destination="AgC-eL-Hgc" id="8PO-PE-McA"/>
+                                    </connections>
+                                </swipeGestureRecognizer>
+                                <tapGestureRecognizer numberOfTapsRequired="2" id="qf5-eE-LuZ">
+                                    <connections>
+                                        <action selector="onDobleTap:" destination="AgC-eL-Hgc" id="Sd5-sh-lSr"/>
+                                    </connections>
+                                </tapGestureRecognizer>
+                            </gestureRecognizers>
+                        </imageView>
                     </items>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
