@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import WatchConnectivity
 
 struct ClockList {
     static var index: Int = UserDefaults.standard.integer(forKey: "index") {
@@ -23,33 +24,13 @@ struct ClockList {
     
     private init() {}
     
-    static private func defaultClocks() -> [Clock] {
-        return [
-            Clock.defaultClock(),
-            Clock(name: "24時間制逆進時計",
-                  ampm: .am,
-                  hours: 24,
-                  minutes: 60,
-                  seconds: 60,
-                  dialFromOne: false,
-                  clockwise:false),
-            Clock(name: "革命暦十進時間",
-                  ampm: .am,
-                  hours: 10,
-                  minutes: 100,
-                  seconds: 100,
-                  dialFromOne: false,
-                  clockwise:true),
-        ]
-    }
-    
     static private func load() -> [Clock] {
         let manager = FileManager.default
         if let dir = manager.urls( for: .documentDirectory, in: .userDomainMask ).first {
             let filePath = dir.appendingPathComponent("clocks.txt")
             if (!manager.fileExists(atPath: filePath.path)) {
                 print("initial clocks")
-                return defaultClocks()
+                return Clock.defaultClocks()
             }
             do {
                 let text = try String( contentsOf: filePath, encoding: String.Encoding.utf8 )
@@ -60,7 +41,7 @@ struct ClockList {
                     if (datum.count != 7) {
                         error_message = "設定ファイルが壊れていました。"
                         print("can't parse data")
-                        return defaultClocks()
+                        return Clock.defaultClocks()
                     }
                     if
                     let ampmValue = Int(datum[1]),
@@ -82,24 +63,24 @@ struct ClockList {
                     } else {
                         error_message = "設定ファイルが壊れていました。"
                         print("can't parse data")
-                        return defaultClocks()
+                        return Clock.defaultClocks()
                     }
                 }
                 if clocks.count == 0 {
                     error_message = "設定ファイルが失われました。"
                     print("lost data")
-                    return defaultClocks()
+                    return Clock.defaultClocks()
                 }
                 return clocks
             } catch {
                 error_message = "設定ファイルを読めませんでした。"
                 print("can't open file")
-                return defaultClocks()
+                return Clock.defaultClocks()
             }
         } else {
             error_message = "設定フォルダを読めませんでした。"
             print("can't open directory")
-            return defaultClocks()
+            return Clock.defaultClocks()
         }
     }
     
@@ -125,6 +106,8 @@ struct ClockList {
                 error_message = "設定ファイルに書き込めませんでした"
                 print("can't open file")
             }
+            let session = WCSession.default
+            session.transferFile(filePath, metadata: nil)
         } else {
             error_message = "設定フォルダに書き込めませんでした"
             print("can't open directory")

@@ -26,7 +26,7 @@ extension Date {
         let hour = CLong(calendar.component(.hour, from:self))
         let minute = CLong(calendar.component(.minute, from:self))
         let second = CLong(calendar.component(.second, from:self))
-        let millisecond = CLong(self.timeIntervalSince1970 * 1000) % 1000
+        let millisecond = CLong(Int64(self.timeIntervalSince1970 * 1000) % 1000)
         return ((hour * 60 + minute) * 60 + second) * 1000 + millisecond
     }
 }
@@ -84,5 +84,29 @@ class Clock: NSObject {
                      seconds: 60,
                      dialFromOne: true,
                      clockwise: true)
+    }
+    
+    class func defaultClocks() -> [Clock] {
+        return [
+            Clock.defaultClock(),
+            Clock(name: "24時間制逆進時計",
+                  ampm: .am,
+                  hours: 24,
+                  minutes: 60,
+                  seconds: 60,
+                  dialFromOne: false,
+                  clockwise:false),
+            Clock(name: "革命暦十進時間",
+                  ampm: .am,
+                  hours: 10,
+                  minutes: 100,
+                  seconds: 100,
+                  dialFromOne: false,
+                  clockwise:true),
+        ]
+    }
+    
+    class func unitAngle(totalNum: Int) -> Double {
+        return 2.0 / Double(totalNum) * Double.pi
     }
 }

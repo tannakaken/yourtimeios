@@ -50,7 +50,7 @@ class DataViewController: ViewWithBannerAdController {
     }
     
     func animation() {
-        UIView.animate(withDuration: 100, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             let now = Date()
             let millisecond = now.millisecond()
             self.canvasView.ticktack(millisecond: millisecond)

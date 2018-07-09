@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate {
-
+class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate, WCSessionDelegate {
+    
     var pageViewController: UIPageViewController?
 
     override func viewDidLoad() {
@@ -36,6 +37,13 @@ class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate 
         self.pageViewController!.view.frame = pageViewRect
 
         self.pageViewController!.didMove(toParentViewController: self)
+        
+        // activate WCSession
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +96,30 @@ class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate 
 
         return .mid
     }
-
+    
+    // MARK: - WCSession delegate methods
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        let manager = FileManager.default
+        if let dir = manager.urls(for: .documentDirectory, in:.userDomainMask).first {
+            let filePath = dir.appendingPathComponent("clocks.txt")
+            if manager.fileExists(atPath: filePath.path) {
+                session.transferFile(filePath, metadata: nil)
+            }
+        }
+    }
 
 }
 

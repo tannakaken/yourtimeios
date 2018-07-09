@@ -19,24 +19,20 @@ class CanvasView: UIView {
         // Drawing code
         self.foregroundColor.setStroke()
         let hourLength = self.bounds.midX * 0.5
-        let hourUnitAngle = self.unitAngle(totalNum: clock.hours)
+        let hourUnitAngle = Clock.unitAngle(totalNum: clock.hours)
         let hourRadian = clock.sig * self.hour * hourUnitAngle
         self.drawNeedle(width: CGFloat(3.0), length: hourLength, radian: hourRadian)
         
         let minuteLength = self.bounds.midX * 0.6
-        let minuteUnitAngle = self.unitAngle(totalNum: clock.minutes)
+        let minuteUnitAngle = Clock.unitAngle(totalNum: clock.minutes)
         let minuteRadian = clock.sig * Double(self.minute) * minuteUnitAngle
         self.drawNeedle(width: CGFloat(1.5), length: minuteLength, radian: minuteRadian)
         
         let secondLength = self.bounds.midX * 0.8
-        let secondUnitAngle = self.unitAngle(totalNum: clock.seconds)
+        let secondUnitAngle = Clock.unitAngle(totalNum: clock.seconds)
         let secondRadian = clock.sig * Double(self.second) * secondUnitAngle
         self.drawNeedle(width: CGFloat(0.8), length: secondLength, radian: secondRadian)
         drawDial()
-    }
-    
-    private func unitAngle(totalNum: Int) -> Double {
-        return 2.0 / Double(totalNum) * Double.pi
     }
     
     func ticktack(millisecond: CLong) {
@@ -65,7 +61,7 @@ class CanvasView: UIView {
             .foregroundColor: self.foregroundColor
         ]
         let radius = self.bounds.midX * 0.9
-        let angle = self.clock.sig * self.unitAngle(totalNum: self.clock.hours)
+        let angle = self.clock.sig * Clock.unitAngle(totalNum: self.clock.hours)
         let range = self.clock.dialFromOne ? 1...self.clock.hours : 0...(self.clock.hours-1)
         for i in range {
             let x = self.bounds.midX + radius * CGFloat(sin(Double(i) * angle)) - fontSize/2
