@@ -55,7 +55,7 @@ class CanvasView: UIView {
     }
     
     private func drawDial() {
-        let fontSize = CGFloat(10)
+        let fontSize = CGFloat(15)
         let attributes: [NSAttributedStringKey : AnyObject] = [
             .font: UIFont.systemFont(ofSize: fontSize),
             .foregroundColor: self.foregroundColor

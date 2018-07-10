@@ -19,7 +19,7 @@ class ViewWithBannerAdController: UIViewController {
         // Do any additional setup after loading the view.
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         addBannerViewToView(bannerView)
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-2965415045499808/6522776016"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
     }
