@@ -28,7 +28,7 @@ class ClockTableViewController: UITableViewController {
         super.viewDidAppear(animated)
         if let error_message = ClockList.error_message {
             print(error_message)
-            let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("error", comment: ""), message: error_message, preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default)
             alert.addAction(ok)
             self.present(alert, animated: true)
@@ -61,7 +61,7 @@ class ClockTableViewController: UITableViewController {
         let button = UIButton(frame: CGRect(x: tableView.frame.width - 40, y: cell.center.y - 15, width: 40, height: 30))
         button.backgroundColor = .black
         button.setTitleColor(.white, for: [.normal])
-        button.setTitle("設定", for: [.normal])
+        button.setTitle(NSLocalizedString("conf", comment: ""), for: [.normal])
         button.tag = indexPath.row
         button.addTarget(self, action: #selector(tapButton(sender:)), for: .touchUpInside)
         cell.contentView.addSubview(button)
@@ -79,13 +79,13 @@ class ClockTableViewController: UITableViewController {
     }
     
     @IBAction func addClock(_ sender: Any) {
-        if ClockList.count() != ClockList.limit {
+        if ClockList.count() < ClockList.limit-1 {
             ClockList.append(Clock.defaultClock())
             tableView.insertRows(at: [IndexPath(row: ClockList.count()-1, section: 0)], with: .fade)
             tableView.reloadData()
         } else {
-            let error_message = "時間が多過ぎます！"
-            let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+            let error_message = NSLocalizedString("toomanytimes", comment: "")
+            let alert = UIAlertController(title: NSLocalizedString("error", comment: ""), message: error_message, preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default)
             alert.addAction(ok)
             self.present(alert, animated: true)
@@ -106,8 +106,8 @@ class ClockTableViewController: UITableViewController {
                 let _ = ClockList.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             } else {
-                let error_message = "時間がなくなってしまいます！"
-                let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+                let error_message = NSLocalizedString("notime", comment: "")
+                let alert = UIAlertController(title: NSLocalizedString("error", comment: ""), message: error_message, preferredStyle: .alert)
                 let ok = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(ok)
                 self.present(alert, animated: true)

@@ -20,6 +20,7 @@
 		40186A5120F3CA4600F88EA2 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 40186A5020F3CA4600F88EA2 /* image.png */; };
 		402F36FA20F11E8900FC5BCD /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19ED20E4DD3200FDE8BA /* Clock.swift */; };
 		402F36FC20F34BDD00FC5BCD /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19ED20E4DD3200FDE8BA /* Clock.swift */; };
+		409DE3DA20F4E97B00F5F194 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 409DE3DC20F4E97B00F5F194 /* Localizable.strings */; };
 		40AD71BE20EF04E20003CB54 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40AD71BC20EF04E20003CB54 /* Interface.storyboard */; };
 		40AD71C020EF04E40003CB54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40AD71BF20EF04E40003CB54 /* Assets.xcassets */; };
 		40AD71C720EF04E50003CB54 /* yourtimewatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 40AD71C620EF04E50003CB54 /* yourtimewatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -116,6 +117,8 @@
 		40186A5220F4441D00F88EA2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		40186A5320F4441D00F88EA2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		40186A5420F4441D00F88EA2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Interface.strings; sourceTree = "<group>"; };
+		409DE3DD20F4E98100F5F194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		409DE3DE20F4E98600F5F194 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		40AD71BA20EF04E10003CB54 /* yourtimewatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yourtimewatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AD71BD20EF04E20003CB54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		40AD71BF20EF04E40003CB54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -257,6 +260,7 @@
 				400E1A0220ECAEF300FDE8BA /* ViewWithBannerAdController.swift */,
 				400E1A0620EDE80800FDE8BA /* ViewWithErrorController.swift */,
 				400E1A0820EE42EC00FDE8BA /* ModalController.swift */,
+				409DE3DC20F4E97B00F5F194 /* Localizable.strings */,
 			);
 			path = YourTime;
 			sourceTree = "<group>";
@@ -445,6 +449,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 40AF2C9120A0083A00DDFF2D;
 			productRefGroup = 40AF2C9B20A0083B00DDFF2D /* Products */;
@@ -483,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40AF2CAC20A0083B00DDFF2D /* LaunchScreen.storyboard in Resources */,
+				409DE3DA20F4E97B00F5F194 /* Localizable.strings in Resources */,
 				400E1A0020EB361200FDE8BA /* GoogleService-Info.plist in Resources */,
 				40AF2CA920A0083B00DDFF2D /* Assets.xcassets in Resources */,
 				40AF2CA720A0083B00DDFF2D /* Main.storyboard in Resources */,
@@ -671,6 +677,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		409DE3DC20F4E97B00F5F194 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				409DE3DD20F4E98100F5F194 /* Base */,
+				409DE3DE20F4E98600F5F194 /* ja */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		40AD71BC20EF04E20003CB54 /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

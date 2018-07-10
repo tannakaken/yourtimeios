@@ -77,7 +77,7 @@ class ConfDataViewController: ViewWithBannerAdController, UIPickerViewDelegate, 
         let clock = ClockList.clock(at: self.index)
         if let name = sender.text {
             if name.contains("\n") || name.contains("¥t") {
-                let error_message = "壊れた時間名のデータを修復します"
+                let error_message = NSLocalizedString("brokennamedata", comment: "")
                 sender.text = clock.name
                 print(error_message)
                 let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
@@ -95,9 +95,9 @@ class ConfDataViewController: ViewWithBannerAdController, UIPickerViewDelegate, 
                                  clockwise: clock.clockwise)
             ClockList.set(clock: newClock, at: self.index)
         } else {
-            let error_message = "失われた時間名のデータを修復します"
+            let error_message = NSLocalizedString("brokennamedata", comment: "")
             print(error_message)
-            let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("error", comment: ""), message: error_message, preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default)
             alert.addAction(ok)
             self.present(alert, animated: true)
@@ -117,9 +117,9 @@ class ConfDataViewController: ViewWithBannerAdController, UIPickerViewDelegate, 
                                  clockwise: clock.clockwise)
             ClockList.set(clock: newClock, at: self.index)
         } else {
-            let error_message = "壊れた午数のデータを修復します"
+            let error_message = NSLocalizedString("brokenampmdata", comment: "")
             print(error_message)
-            let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("error", comment: ""), message: error_message, preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default)
             alert.addAction(ok)
             self.present(alert, animated: true)

@@ -25,7 +25,7 @@ class ViewWithErrorController: UIViewController {
         super.viewDidAppear(animated)
         if let error_message = ClockList.error_message {
             print(error_message)
-            let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+            let alert = UIAlertController(title: NSLocalizedString("error", comment: ""), message: error_message, preferredStyle: .alert)
             let ok = UIAlertAction(title: "OK", style: .default)
             alert.addAction(ok)
             self.present(alert, animated: true)

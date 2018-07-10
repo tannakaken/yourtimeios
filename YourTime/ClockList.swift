@@ -14,7 +14,7 @@ struct ClockList {
     static var index: Int = UserDefaults.standard.integer(forKey: "index") {
         didSet {
             if index < 0 || count() <= index {
-                error_message = "不正なインデックスが設定されたので修正します"
+                error_message = NSLocalizedString("irregalindex", comment: "")
                 index = 0
             }
             UserDefaults.standard.set(self.index, forKey: "index")
@@ -30,7 +30,6 @@ struct ClockList {
         if let dir = manager.urls( for: .documentDirectory, in: .userDomainMask ).first {
             let filePath = dir.appendingPathComponent("clocks.txt")
             if (!manager.fileExists(atPath: filePath.path)) {
-                print("initial clocks")
                 return Clock.defaultClocks()
             }
             do {
@@ -40,8 +39,7 @@ struct ClockList {
                 var clocks : [Clock] = []
                 for datum in data {
                     if (datum.count != 7) {
-                        error_message = "設定ファイルが壊れていました。"
-                        print("can't parse data")
+                        error_message = NSLocalizedString("brokenfile", comment: "")
                         return Clock.defaultClocks()
                     }
                     if
@@ -62,25 +60,21 @@ struct ClockList {
                                       )
                         )
                     } else {
-                        error_message = "設定ファイルが壊れていました。"
-                        print("can't parse data")
+                        error_message = NSLocalizedString("brokenfile", comment: "")
                         return Clock.defaultClocks()
                     }
                 }
                 if clocks.count == 0 {
-                    error_message = "設定ファイルが失われました。"
-                    print("lost data")
+                    error_message = NSLocalizedString("lostfile", comment: "")
                     return Clock.defaultClocks()
                 }
                 return clocks
             } catch {
-                error_message = "設定ファイルを読めませんでした。"
-                print("can't open file")
+                error_message = NSLocalizedString("unreadablefile", comment: "")
                 return Clock.defaultClocks()
             }
         } else {
-            error_message = "設定フォルダを読めませんでした。"
-            print("can't open directory")
+            error_message = NSLocalizedString("unreadbledirectory", comment: "")
             return Clock.defaultClocks()
         }
     }
@@ -104,14 +98,12 @@ struct ClockList {
             do {
                 try text.write( to: filePath, atomically: false, encoding: String.Encoding.utf8 )
             } catch {
-                error_message = "設定ファイルに書き込めませんでした"
-                print("can't open file")
+                error_message = NSLocalizedString("unwritablefile", comment: "")
             }
             let session = WCSession.default
             session.transferFile(filePath, metadata: nil)
         } else {
-            error_message = "設定フォルダに書き込めませんでした"
-            print("can't open directory")
+            error_message = NSLocalizedString("unwritabledirectory", comment: "")
         }
     }
     

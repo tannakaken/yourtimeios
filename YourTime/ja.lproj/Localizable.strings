@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  YourTime
+
+  Created by Kensaku Tanaka on 2018/07/10.
+  Copyright © 2018年 Kensaku Tanaka. All rights reserved.
+*/
+
+"error" = "エラー";
+"conf" = "設定";
+"toomanytimes" = "時間が多すぎます!";
+"notime" = "時間がなくなります!";
+"brokennamedata" = "壊れた名前の設定データを修復しています";
+"brokenampmdata" = "壊れたAM/PMの設定データを修復しています";
+"irregalindex" = "不正なインデックスを修正しています";
+"brokenfile" = "設定ファイルが壊れたしまいました。初期データに戻します";
+"lostfile" = "設定ファイルが失われました。初期データに戻します";
+"unreadblefile" = "設定ファイルが読めませんでした。初期データに戻します";
+"unreadbledirectory" = "設定フォルダが読めませんでした。初期データに戻します";
+"unwritablefile" = "設定ファイルに書き込めませんでした";
+"unwritabledirectory" = "設定フォルダに書き込めませんでいた";
+"ordinaltime" = "普通の時間";
+"24hourcounterclock" = "24時間制逆進時計";
+"frenchrepublicantime" = "仏革命暦十進合理普遍時間";

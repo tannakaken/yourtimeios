@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  YourTime
+
+  Created by Kensaku Tanaka on 2018/07/10.
+  Copyright © 2018年 Kensaku Tanaka. All rights reserved.
+*/
+
+"error" = "ERROR";
+"conf" = "conf";
+"toomanytimes" = "Too many times!";
+"notime" = "No time!";
+"brokennamedata" = "Oops, name configuration is broken! We  repair it.";
+"brokenampmdata" = "Oops, AM/PM configuration is broken! We repair it.";
+"irregalindex" = "The index is irregal! We repair it.";
+"brokenfile" = "The configuration file is broken. default clocks are set";
+"lostfile" = "The configuration file is lost. default clocks are set";
+"unreadablefile" = "The configuration file is unreadable. default clocks are set";
+"unreadabledirectory" = "The configuration directory is unreadable. default clocks are set";
+"unwritablefile" = "The configuration file is unwritable.";
+"unwritabledirectory" = "The configuration directory is unwritable.";
+"ordinaltime" = "ordinal time";
+"24hourcounterclock" = "24-hour counterclock";
+"frenchrepublicantime" = "French Republican Time";
