@@ -10,6 +10,7 @@ import Foundation
 import WatchConnectivity
 
 struct ClockList {
+    static let limit: Int = 20
     static var index: Int = UserDefaults.standard.integer(forKey: "index") {
         didSet {
             if index < 0 || count() <= index {
@@ -132,20 +133,20 @@ struct ClockList {
     }
     
     static func remove(at index: Int) -> Clock {
-        if count() == 1 {
-            assert(false, "ClockListの要素を0にすることは禁止されています。この関数より前でチェックすべきです。")
-        }
+        assert(count() != 1, "ClockListの要素を0にすることは禁止されています。この関数より前でチェックすべきです。")
         let removedClock = self.clocks.remove(at: index)
         self.save()
         return removedClock
     }
     
     static func insert(_ clock: Clock, at index: Int) {
+        assert(count() != limit - 1, "ClockListの長さの限度を超えます。この関数より前でチェックすべきです。")
         self.clocks.insert(clock, at: index)
         self.save()
     }
     
     static func append(_ clock: Clock) {
+        assert(count() != limit - 1, "ClockListの長さの限度を超えます。この関数より前でチェックすべきです。")
         self.clocks.append(clock)
         self.save()
     }

@@ -79,9 +79,17 @@ class ClockTableViewController: UITableViewController {
     }
     
     @IBAction func addClock(_ sender: Any) {
-        ClockList.append(Clock.defaultClock())
-        tableView.insertRows(at: [IndexPath(row: ClockList.count()-1, section: 0)], with: .fade)
-        tableView.reloadData()
+        if ClockList.count() != ClockList.limit {
+            ClockList.append(Clock.defaultClock())
+            tableView.insertRows(at: [IndexPath(row: ClockList.count()-1, section: 0)], with: .fade)
+            tableView.reloadData()
+        } else {
+            let error_message = "時間が多過ぎます！"
+            let alert = UIAlertController(title: "エラー", message: error_message, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(ok)
+            self.present(alert, animated: true)
+        }
     }
 
     // Override to support conditional editing of the table view.
