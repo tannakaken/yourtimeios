@@ -1,0 +1,105 @@
+
+/* Class = "UISegmentedControl"; 0X6-mY-zhr.segmentTitles[0] = "0から"; ObjectID = "0X6-mY-zhr"; */
+"0X6-mY-zhr.segmentTitles[0]" = "0から";
+
+/* Class = "UISegmentedControl"; 0X6-mY-zhr.segmentTitles[1] = "1から"; ObjectID = "0X6-mY-zhr"; */
+"0X6-mY-zhr.segmentTitles[1]" = "1から";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "3Bq-4u-M0f"; */
+"3Bq-4u-M0f.normalTitle" = "+";
+
+/* Class = "UIButton"; normalTitle = "一覧"; ObjectID = "DTa-Mu-deH"; */
+"DTa-Mu-deH.normalTitle" = "一覧";
+
+/* Class = "UILabel"; text = "趣味。役に立たないものを世に"; ObjectID = "E8x-oO-YgA"; */
+"E8x-oO-YgA.text" = "趣味。役に立たないものを世に";
+
+/* Class = "UILabel"; text = "文字盤は"; ObjectID = "EN6-cs-UkB"; */
+"EN6-cs-UkB.text" = "文字盤は";
+
+/* Class = "UISegmentedControl"; GW4-Pw-5yC.segmentTitles[0] = "1"; ObjectID = "GW4-Pw-5yC"; */
+"GW4-Pw-5yC.segmentTitles[0]" = "1";
+
+/* Class = "UISegmentedControl"; GW4-Pw-5yC.segmentTitles[1] = "2（前後）"; ObjectID = "GW4-Pw-5yC"; */
+"GW4-Pw-5yC.segmentTitles[1]" = "2（前後）";
+
+/* Class = "UISegmentedControl"; GW4-Pw-5yC.segmentTitles[2] = "3（前中後）"; ObjectID = "GW4-Pw-5yC"; */
+"GW4-Pw-5yC.segmentTitles[2]" = "3（前中後）";
+
+/* Class = "UILabel"; text = "放つオッカムの剃刀の錆。"; ObjectID = "HxF-M9-TBX"; */
+"HxF-M9-TBX.text" = "放つオッカムの剃刀の錆。";
+
+/* Class = "UILabel"; text = "午数"; ObjectID = "MB9-bk-6jA"; */
+"MB9-bk-6jA.text" = "午数";
+
+/* Class = "UIButton"; normalTitle = "設定"; ObjectID = "MGD-YS-AW2"; */
+"MGD-YS-AW2.normalTitle" = "設定";
+
+/* Class = "UILabel"; text = "名称"; ObjectID = "Mgg-Et-Yfk"; */
+"Mgg-Et-Yfk.text" = "名称";
+
+/* Class = "UIButton"; normalTitle = "tannakaken.xyz/novels/YourTime"; ObjectID = "RCv-yd-A7v"; */
+"RCv-yd-A7v.normalTitle" = "tannakaken.xyz/novels/YourTime";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RUb-EX-YsE"; */
+"RUb-EX-YsE.text" = "Label";
+
+/* Class = "UILabel"; text = "数学・プログラミング・小説が"; ObjectID = "THR-bE-T7a"; */
+"THR-bE-T7a.text" = "数学・プログラミング・小説が";
+
+/* Class = "UILabel"; text = "関連小説"; ObjectID = "TTO-yy-o8m"; */
+"TTO-yy-o8m.text" = "関連小説";
+
+/* Class = "UIButton"; normalTitle = "一覧"; ObjectID = "WKm-a6-vFO"; */
+"WKm-a6-vFO.normalTitle" = "一覧";
+
+/* Class = "UIButton"; normalTitle = "閉じる"; ObjectID = "Zyc-tG-mR3"; */
+"Zyc-tG-mR3.normalTitle" = "閉じる";
+
+/* Class = "UINavigationItem"; title = "設定"; ObjectID = "ahg-ad-pjk"; */
+"ahg-ad-pjk.title" = "設定";
+
+/* Class = "UILabel"; text = "Webページ："; ObjectID = "c8W-a2-FTn"; */
+"c8W-a2-FTn.text" = "Webページ：";
+
+/* Class = "UIButton"; normalTitle = "?"; ObjectID = "cj5-G4-63K"; */
+"cj5-G4-63K.normalTitle" = "?";
+
+/* Class = "UINavigationItem"; title = "Clock Name"; ObjectID = "cx9-Cz-tmT"; */
+"cx9-Cz-tmT.title" = "Clock Name";
+
+/* Class = "UIButton"; normalTitle = "時計"; ObjectID = "d22-7C-uPo"; */
+"d22-7C-uPo.normalTitle" = "時計";
+
+/* Class = "UINavigationItem"; title = "時間の一覧"; ObjectID = "eCL-A9-HMg"; */
+"eCL-A9-HMg.title" = "時間の一覧";
+
+/* Class = "UILabel"; text = "作者："; ObjectID = "fbm-do-UZ3"; */
+"fbm-do-UZ3.text" = "作者：";
+
+/* Class = "UILabel"; text = "淡中 圏"; ObjectID = "gfP-gF-Of3"; */
+"gfP-gF-Of3.text" = "淡中 圏";
+
+/* Class = "UILabel"; text = "針は"; ObjectID = "jCr-Tv-nkg"; */
+"jCr-Tv-nkg.text" = "針は";
+
+/* Class = "UIButton"; normalTitle = "tannakaken@gmail.com"; ObjectID = "kpU-Mv-ins"; */
+"kpU-Mv-ins.normalTitle" = "tannakaken@gmail.com";
+
+/* Class = "UILabel"; text = "時数/分数/秒数"; ObjectID = "lEV-4t-t1s"; */
+"lEV-4t-t1s.text" = "時数/分数/秒数";
+
+/* Class = "UIButton"; normalTitle = "!"; ObjectID = "oJ8-Kr-Aa6"; */
+"oJ8-Kr-Aa6.normalTitle" = "!";
+
+/* Class = "UIButton"; normalTitle = "tannakaken.xyz"; ObjectID = "oTh-1Z-pix"; */
+"oTh-1Z-pix.normalTitle" = "tannakaken.xyz";
+
+/* Class = "UILabel"; text = "連絡先："; ObjectID = "v8u-vG-4iu"; */
+"v8u-vG-4iu.text" = "連絡先：";
+
+/* Class = "UISegmentedControl"; xRd-Ga-660.segmentTitles[0] = "左回り"; ObjectID = "xRd-Ga-660"; */
+"xRd-Ga-660.segmentTitles[0]" = "左回り";
+
+/* Class = "UISegmentedControl"; xRd-Ga-660.segmentTitles[1] = "右回り"; ObjectID = "xRd-Ga-660"; */
+"xRd-Ga-660.segmentTitles[1]" = "右回り";

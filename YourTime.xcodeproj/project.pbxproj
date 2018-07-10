@@ -113,6 +113,9 @@
 		400E1A0620EDE80800FDE8BA /* ViewWithErrorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWithErrorController.swift; sourceTree = "<group>"; };
 		400E1A0820EE42EC00FDE8BA /* ModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalController.swift; sourceTree = "<group>"; };
 		40186A5020F3CA4600F88EA2 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
+		40186A5220F4441D00F88EA2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		40186A5320F4441D00F88EA2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		40186A5420F4441D00F88EA2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Interface.strings; sourceTree = "<group>"; };
 		40AD71BA20EF04E10003CB54 /* yourtimewatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yourtimewatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AD71BD20EF04E20003CB54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		40AD71BF20EF04E40003CB54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -672,6 +675,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				40AD71BD20EF04E20003CB54 /* Base */,
+				40186A5420F4441D00F88EA2 /* ja */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -680,6 +684,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				40AF2CA620A0083B00DDFF2D /* Base */,
+				40186A5220F4441D00F88EA2 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -688,6 +693,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				40AF2CAB20A0083B00DDFF2D /* Base */,
+				40186A5320F4441D00F88EA2 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -781,6 +787,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -841,6 +848,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
