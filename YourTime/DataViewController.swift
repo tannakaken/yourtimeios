@@ -83,7 +83,11 @@ class DataViewController: ViewWithBannerAdController {
         "夏への扉",
         "輪廻の蛇",
         "笹の葉ラプソディ",
-        "タイムマシン"
+        "タイムマシン",
+        "時の娘",
+        "たんぽぽ娘",
+        "笑うな",
+        "七回死んだ男"
     ]
     
     @IBAction func doubleTapCanvas(_ sender: Any) {
