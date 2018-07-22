@@ -47,6 +47,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     var centerX: CGFloat = 0.0
     var centerY: CGFloat = 0.0
+    var radius: CGFloat = 0.0
+    var dx: CGFloat = 0.0
+    
+    var animateLeft: Bool = false
+    var animateRight: Bool = false
+    var fadeout: Bool = true
     
     @IBOutlet var image: WKInterfaceImage!
     override func awake(withContext context: Any?) {
@@ -78,6 +84,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         super.willActivate()
         centerX = self.contentFrame.width / 2
         centerY = self.contentFrame.height / 2
+        radius = min(centerX,centerY)
+        dx = radius / 10
         self.draw()
         self.animation()
     }
@@ -123,8 +131,8 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         let angle = clocks[index].sig * Clock.unitAngle(totalNum: clocks[index].hours)
         let range = clocks[index].dialFromOne ? 1...clocks[index].hours : 0...(clocks[index].hours-1)
         for i in range {
-            let x = centerX + centerX * ratio * CGFloat(sin(Double(i) * angle)) - fontSize/2
-            let y = centerY - centerY * ratio * CGFloat(cos(Double(i) * angle)) - fontSize/2
+            let x = centerX + radius * ratio * CGFloat(sin(Double(i) * angle)) - fontSize/2
+            let y = centerY - radius * ratio * CGFloat(cos(Double(i) * angle)) - fontSize/2
             NSAttributedString(string: "\(i)", attributes:attributes).draw(at: CGPoint(x:x,y:y))
         }
     }
@@ -133,14 +141,54 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         context.setStrokeColor(foregroundColor.cgColor)
         context.move(to: CGPoint(x:centerX,y:centerY))
         context.setLineWidth(width)
-        let dx = centerX * ratio * CGFloat(sin(radian))
-        let dy = -centerY * ratio * CGFloat(cos(radian))
+        let dx = radius * ratio * CGFloat(sin(radian))
+        let dy = -radius * ratio * CGFloat(cos(radian))
         context.addLine(to: CGPoint(x: centerX + dx, y: centerY+dy))
         context.strokePath()
     }
     
     func animation() {
         self.animate(withDuration: 0.1, animations: {
+            if self.animateRight {
+                if self.fadeout {
+                    if self.centerX >= 1.5 * self.contentFrame.width {
+                        self.index -= 1
+                        UserDefaults.standard.set(self.index, forKey: "index")
+                        self.centerX = -0.5 * self.contentFrame.width
+                        self.fadeout = false
+                    } else {
+                        self.centerX += self.dx
+                    }
+                } else {
+                    if self.centerX >= 0.5 * self.contentFrame.width {
+                        self.animateRight = false
+                        self.fadeout = true
+                        self.centerX = 0.5 * self.contentFrame.width
+                    } else {
+                        self.centerX += self.dx
+                    }
+                }
+            }
+            if self.animateLeft {
+                if self.fadeout {
+                    if self.centerX <= -0.5 * self.contentFrame.width {
+                        self.index += 1
+                        UserDefaults.standard.set(self.index, forKey: "index")
+                        self.centerX = 1.5 * self.contentFrame.width
+                        self.fadeout = false
+                    } else {
+                        self.centerX -= self.dx
+                    }
+                } else {
+                    if self.centerX <= 0.5 * self.contentFrame.width {
+                        self.animateLeft = false
+                        self.fadeout = true
+                        self.centerX = 0.5 * self.contentFrame.width
+                    } else {
+                        self.centerX -= self.dx
+                    }
+                }
+            }
             self.draw()
             self.animation()
         })
@@ -232,17 +280,15 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     @IBAction func onSwipeRight(_ sender: Any) {
-        if self.index > 0 {
-            self.index -= 1
+        if self.index > 0 && !animateLeft && !animateRight {
+            animateRight = true
         }
-        UserDefaults.standard.set(self.index, forKey: "index")
     }
     
     @IBAction func onSwipeLeft(_ sender: Any) {
-        if self.index < self.clocks.count - 1 {
-            self.index += 1
+        if self.index < self.clocks.count - 1 && !animateLeft && !animateRight {
+            animateLeft = true
         }
-        UserDefaults.standard.set(self.index, forKey: "index")
     }
     
     @IBAction func onDobleTap(_ sender: Any) {
