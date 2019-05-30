@@ -63,7 +63,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
             let session = WCSession.default
             session.delegate = self
             session.activate()
-            self.send(session)
+            if session.isReachable {
+                self.send(session)
+            }
         }
         let manager = FileManager.default
         if let dir = manager.urls(for: .documentDirectory, in: .userDomainMask).first {
@@ -75,7 +77,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     func send(_ session: WCSession) {
         session.sendMessage([:], replyHandler: nil, errorHandler: {(error) in
-            self.send(session)
+            if session.isReachable {
+                self.send(session)
+            }
         })
     }
     
@@ -84,7 +88,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         super.willActivate()
         if WCSession.isSupported() {
             let session = WCSession.default
-            self.send(session)
+            if session.isReachable {
+                self.send(session)
+            }
         }
         centerX = self.contentFrame.width / 2
         centerY = self.contentFrame.height / 2
@@ -95,6 +101,11 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     func draw() {
+        guard index >= 0 && index < clocks.count else {
+            index = 0
+            UserDefaults.standard.set(self.index, forKey: "index")
+            return
+        }
         UIGraphicsBeginImageContext(self.contentFrame.size)
         if let context : CGContext = UIGraphicsGetCurrentContext() {
             context.setFillColor(backgroundColor.cgColor)
@@ -126,6 +137,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     func drawDial() {
+        guard index >= 0 && index < clocks.count else {
+            index = 0
+            UserDefaults.standard.set(self.index, forKey: "index")
+            return
+        }
+        let whratio = self.contentFrame.width / self.contentFrame.height
         let fontSize = CGFloat(10)
         let attributes: [NSAttributedString.Key : AnyObject] = [
             .font: UIFont.systemFont(ofSize: fontSize),
@@ -135,19 +152,20 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         let angle = clocks[index].sig * Clock.unitAngle(totalNum: clocks[index].hours)
         let range = clocks[index].dialFromOne ? 1...clocks[index].hours : 0...(clocks[index].hours-1)
         for i in range {
-            let x = centerX + radius * ratio * CGFloat(sin(Double(i) * angle)) - fontSize/2
+            let x = centerX + whratio * radius * ratio * CGFloat(sin(Double(i) * angle)) - fontSize/2
             let y = centerY - radius * ratio * CGFloat(cos(Double(i) * angle)) - fontSize/2
             NSAttributedString(string: "\(i)", attributes:attributes).draw(at: CGPoint(x:x,y:y))
         }
     }
     
     func drawNeedle(width: CGFloat, ratio: CGFloat, radian: Double, context: CGContext) {
+        let whratio = self.contentFrame.width / self.contentFrame.height
         context.setStrokeColor(foregroundColor.cgColor)
         context.move(to: CGPoint(x:centerX,y:centerY))
         context.setLineWidth(width)
         let dx = radius * ratio * CGFloat(sin(radian))
         let dy = -radius * ratio * CGFloat(cos(radian))
-        context.addLine(to: CGPoint(x: centerX + dx, y: centerY+dy))
+        context.addLine(to: CGPoint(x: centerX + whratio*dx, y: centerY+dy))
         context.strokePath()
     }
     
@@ -214,8 +232,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         if let dir = manager.urls(for: .documentDirectory, in: .userDomainMask).first {
             let filePath = dir.appendingPathComponent("clocks.txt")
             do {
-                try manager.removeItem(at: filePath)
-                try manager.copyItem(at: file.fileURL, to: filePath)
+                try? manager.removeItem(at: filePath)
+                try manager.moveItem(at: file.fileURL, to: filePath)
+                print("write file")
             } catch {
                 print("cant write file")
             }
@@ -251,9 +270,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     func parse(url: URL) -> [Clock] {
-        var result : [Clock] = []
         do {
+            var result : [Clock] = []
             let text = try String(contentsOf: url, encoding: String.Encoding.utf8)
+            print(text)
             let lines = text.components(separatedBy: "\n")
             let data = lines[0..<(lines.count-1)].map {
                 str in return str.components(separatedBy: "\t")
@@ -277,10 +297,12 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                                         clockwise: clockwise))
                 }
             }
+            print("parse file")
+            return result
         } catch {
             print("cant parse file")
+            return Clock.defaultClocks()
         }
-        return result
     }
     
     @IBAction func onSwipeRight(_ sender: Any) {
