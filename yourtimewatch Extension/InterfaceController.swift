@@ -82,6 +82,10 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
+        if WCSession.isSupported() {
+            let session = WCSession.default
+            self.send(session)
+        }
         centerX = self.contentFrame.width / 2
         centerY = self.contentFrame.height / 2
         radius = min(centerX,centerY)
