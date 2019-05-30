@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E027E3A22A08FC300E5E335 /* ClockTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E027E3922A08FC300E5E335 /* ClockTableCell.xib */; };
 		2E027E3C22A090F600E5E335 /* ClockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F520E7C5BC00FDE8BA /* ClockList.swift */; };
+		2E027E4222A0942600E5E335 /* ClockTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E027E4122A0942600E5E335 /* ClockTableCell.swift */; };
 		400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19EB20E2399D00FDE8BA /* CanvasView.swift */; };
 		400E19F420E7861E00FDE8BA /* ConfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F320E7861E00FDE8BA /* ConfViewController.swift */; };
 		400E19F620E7C5BC00FDE8BA /* ClockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F520E7C5BC00FDE8BA /* ClockList.swift */; };
@@ -103,6 +104,7 @@
 /* Begin PBXFileReference section */
 		12CA4AA484F276F20E484D98 /* Pods_YourTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YourTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E027E3922A08FC300E5E335 /* ClockTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClockTableCell.xib; sourceTree = "<group>"; };
+		2E027E4122A0942600E5E335 /* ClockTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTableCell.swift; sourceTree = "<group>"; };
 		3667BD70262D4C896CD8F48F /* Pods-YourTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YourTimeTests/Pods-YourTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		38C4D562BA70E2BCC0E9EEC9 /* Pods-YourTimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourTimeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YourTimeUITests/Pods-YourTimeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		400E19EB20E2399D00FDE8BA /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
@@ -210,7 +212,6 @@
 				400E1A0220ECAEF300FDE8BA /* ViewWithBannerAdController.swift */,
 				400E1A0620EDE80800FDE8BA /* ViewWithErrorController.swift */,
 				400E1A0820EE42EC00FDE8BA /* ModalController.swift */,
-				2E027E3922A08FC300E5E335 /* ClockTableCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -240,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				400E19FB20E9B55500FDE8BA /* ClockTableViewController.swift */,
+				2E027E3922A08FC300E5E335 /* ClockTableCell.xib */,
+				2E027E4122A0942600E5E335 /* ClockTableCell.swift */,
 			);
 			path = ClockTable;
 			sourceTree = "<group>";
@@ -480,10 +483,12 @@
 					};
 					40AF2CB120A0083C00DDFF2D = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1020;
 						TestTargetID = 40AF2C9920A0083B00DDFF2D;
 					};
 					40AF2CBC20A0083C00DDFF2D = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1020;
 						TestTargetID = 40AF2C9920A0083B00DDFF2D;
 					};
 				};
@@ -674,6 +679,7 @@
 				400E19F420E7861E00FDE8BA /* ConfViewController.swift in Sources */,
 				400E1A0320ECAEF300FDE8BA /* ViewWithBannerAdController.swift in Sources */,
 				400E19FC20E9B55500FDE8BA /* ClockTableViewController.swift in Sources */,
+				2E027E4222A0942600E5E335 /* ClockTableCell.swift in Sources */,
 				400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */,
 				40AF2CA220A0083B00DDFF2D /* CanvasViewController.swift in Sources */,
 				402F36FA20F11E8900FC5BCD /* Clock.swift in Sources */,
@@ -1018,7 +1024,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YourTime.app/YourTime";
 			};
@@ -1040,7 +1046,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YourTime.app/YourTime";
 			};
@@ -1061,7 +1067,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTimeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = YourTime;
 			};
@@ -1082,7 +1088,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTimeUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = YourTime;
 			};

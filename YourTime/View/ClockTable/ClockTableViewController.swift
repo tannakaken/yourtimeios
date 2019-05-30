@@ -17,11 +17,9 @@ class ClockTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         navigation.leftBarButtonItem = self.editButtonItem
+        
+        self.tableView.register(UINib(nibName: "ClockTableCell", bundle: nil), forCellReuseIdentifier: "ClockTableCell")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -55,16 +53,11 @@ class ClockTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ClockCell", for: indexPath)
-        // Configure the cell...
-        cell.textLabel?.text = ClockList.clock(at: indexPath.row).name
-        let button = UIButton(frame: CGRect(x: tableView.frame.width - 40, y: cell.center.y - 15, width: 40, height: 30))
-        button.backgroundColor = .black
-        button.setTitleColor(.white, for: [.normal])
-        button.setTitle(NSLocalizedString("conf", comment: ""), for: [.normal])
-        button.tag = indexPath.row
-        button.addTarget(self, action: #selector(tapButton(sender:)), for: .touchUpInside)
-        cell.contentView.addSubview(button)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClockTableCell", for: indexPath) as! ClockTableCell
+        cell.clockNameLabel.text = ClockList.clock(at: indexPath.row).name
+        cell.clockConfButton.setTitle(NSLocalizedString("conf", comment: ""), for: [.normal])
+        cell.clockConfButton.tag = indexPath.row
+        cell.clockConfButton.addTarget(self, action: #selector(tapButton(sender:)), for: .touchUpInside)
         return cell
     }
     

@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="F2D-z0-EoH">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClockTableCell" id="F2D-z0-EoH" customClass="ClockTableCell" customModule="YourTime" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F2D-z0-EoH" id="vSb-y9-YeG">
@@ -36,6 +36,10 @@
                     <constraint firstItem="gt0-YE-Iix" firstAttribute="centerY" secondItem="vSb-y9-YeG" secondAttribute="centerY" id="nKM-iw-EyW"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="clockConfButton" destination="3Ys-4h-t9Y" id="TMN-1f-hvw"/>
+                <outlet property="clockNameLabel" destination="gt0-YE-Iix" id="CFY-0S-vkx"/>
+            </connections>
             <point key="canvasLocation" x="-103" y="102"/>
         </tableViewCell>
     </objects>
