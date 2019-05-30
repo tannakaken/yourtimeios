@@ -36,16 +36,16 @@ class ModalController: UIViewController {
     }
     
     @IBAction func tapMail(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "mailto:tannakaken@gmail.com")!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "mailto:tannakaken@gmail.com")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     
     @IBAction func tapWebPage(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://tannakaken.xyz")!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "https://tannakaken.xyz")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         
     }
     
     @IBAction func tapNovel(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://tannakaken.xyz/novels/YourTime")!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "https://tannakaken.xyz/novels/YourTime")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     
     @IBAction func close(_ sender: Any) {
@@ -62,4 +62,9 @@ class ModalController: UIViewController {
     }
     */
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

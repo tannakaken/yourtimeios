@@ -116,7 +116,7 @@ struct ClockList {
     }
     
     static func index(of clock: Clock) -> Int? {
-        return self.clocks.index(of: clock)
+        return self.clocks.firstIndex(of: clock)
     }
     
     static func set(clock: Clock, at index: Int) {

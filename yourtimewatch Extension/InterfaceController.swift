@@ -127,7 +127,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     
     func drawDial() {
         let fontSize = CGFloat(10)
-        let attributes: [NSAttributedStringKey : AnyObject] = [
+        let attributes: [NSAttributedString.Key : AnyObject] = [
             .font: UIFont.systemFont(ofSize: fontSize),
             .foregroundColor: foregroundColor
         ]
