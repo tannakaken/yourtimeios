@@ -9,7 +9,7 @@
 import UIKit
 import WatchConnectivity
 
-class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate, WCSessionDelegate {
+class ClockViewController: ViewWithErrorController, UIPageViewControllerDelegate, WCSessionDelegate {
     
     var pageViewController: UIPageViewController?
 
@@ -20,7 +20,7 @@ class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate,
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pageViewController!.delegate = self
 
-        let startingViewController: DataViewController = self.modelController.viewControllerAtIndex(ClockList.index, storyboard: self.storyboard!)!
+        let startingViewController: CanvasViewController = self.modelController.viewControllerAtIndex(ClockList.index, storyboard: self.storyboard!)!
         let viewControllers = [startingViewController]
         self.pageViewController!.setViewControllers(viewControllers, direction: .forward, animated: false, completion: {done in })
 
@@ -51,16 +51,16 @@ class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate,
         // Dispose of any resources that can be recreated.
     }
     
-    var modelController: ModelController {
+    var modelController: ClockModelController {
         // Return the model controller object, creating it if necessary.
         // In more complex implementations, the model controller may be passed to the view controller.
         if _modelController == nil {
-            _modelController = ModelController()
+            _modelController = ClockModelController()
         }
         return _modelController!
     }
 
-    var _modelController: ModelController? = nil
+    var _modelController: ClockModelController? = nil
 
     // MARK: - UIPageViewController delegate methods
 
@@ -76,7 +76,7 @@ class RootViewController: ViewWithErrorController, UIPageViewControllerDelegate,
         }
 
         // In landscape orientation: Set set the spine location to "mid" and the page view controller's view controllers array to contain two view controllers. If the current page is even, set it to contain the current and next view controllers; if it is odd, set the array to contain the previous and current view controllers.
-        let currentViewController = self.pageViewController!.viewControllers![0] as! DataViewController
+        let currentViewController = self.pageViewController!.viewControllers![0] as! CanvasViewController
         var viewControllers: [UIViewController]
 
         let indexOfCurrentViewController = self.modelController.indexOfViewController(currentViewController)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E027E3A22A08FC300E5E335 /* ClockTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E027E3922A08FC300E5E335 /* ClockTableCell.xib */; };
+		2E027E3C22A090F600E5E335 /* ClockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F520E7C5BC00FDE8BA /* ClockList.swift */; };
 		400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19EB20E2399D00FDE8BA /* CanvasView.swift */; };
 		400E19F420E7861E00FDE8BA /* ConfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F320E7861E00FDE8BA /* ConfViewController.swift */; };
 		400E19F620E7C5BC00FDE8BA /* ClockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F520E7C5BC00FDE8BA /* ClockList.swift */; };
@@ -29,9 +31,9 @@
 		40AD71D020EF04E50003CB54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40AD71CF20EF04E50003CB54 /* Assets.xcassets */; };
 		40AD71D520EF04E50003CB54 /* yourtimewatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 40AD71BA20EF04E10003CB54 /* yourtimewatch.app */; };
 		40AF2C9E20A0083B00DDFF2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */; };
-		40AF2CA020A0083B00DDFF2D /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9F20A0083B00DDFF2D /* RootViewController.swift */; };
-		40AF2CA220A0083B00DDFF2D /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CA120A0083B00DDFF2D /* DataViewController.swift */; };
-		40AF2CA420A0083B00DDFF2D /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CA320A0083B00DDFF2D /* ModelController.swift */; };
+		40AF2CA020A0083B00DDFF2D /* ClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9F20A0083B00DDFF2D /* ClockViewController.swift */; };
+		40AF2CA220A0083B00DDFF2D /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CA120A0083B00DDFF2D /* CanvasViewController.swift */; };
+		40AF2CA420A0083B00DDFF2D /* ClockModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CA320A0083B00DDFF2D /* ClockModelController.swift */; };
 		40AF2CA720A0083B00DDFF2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40AF2CA520A0083B00DDFF2D /* Main.storyboard */; };
 		40AF2CA920A0083B00DDFF2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40AF2CA820A0083B00DDFF2D /* Assets.xcassets */; };
 		40AF2CAC20A0083B00DDFF2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40AF2CAA20A0083B00DDFF2D /* LaunchScreen.storyboard */; };
@@ -100,6 +102,7 @@
 
 /* Begin PBXFileReference section */
 		12CA4AA484F276F20E484D98 /* Pods_YourTimeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YourTimeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E027E3922A08FC300E5E335 /* ClockTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClockTableCell.xib; sourceTree = "<group>"; };
 		3667BD70262D4C896CD8F48F /* Pods-YourTimeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourTimeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YourTimeTests/Pods-YourTimeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		38C4D562BA70E2BCC0E9EEC9 /* Pods-YourTimeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YourTimeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YourTimeUITests/Pods-YourTimeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		400E19EB20E2399D00FDE8BA /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
@@ -132,9 +135,9 @@
 		40AD71DE20EF07750003CB54 /* YourTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YourTime.entitlements; sourceTree = "<group>"; };
 		40AF2C9A20A0083B00DDFF2D /* YourTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YourTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40AF2C9F20A0083B00DDFF2D /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		40AF2CA120A0083B00DDFF2D /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
-		40AF2CA320A0083B00DDFF2D /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		40AF2C9F20A0083B00DDFF2D /* ClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockViewController.swift; sourceTree = "<group>"; };
+		40AF2CA120A0083B00DDFF2D /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
+		40AF2CA320A0083B00DDFF2D /* ClockModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockModelController.swift; sourceTree = "<group>"; };
 		40AF2CA620A0083B00DDFF2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40AF2CA820A0083B00DDFF2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40AF2CAB20A0083B00DDFF2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -188,6 +191,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E027E3B22A090E000E5E335 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				400E19F520E7C5BC00FDE8BA /* ClockList.swift */,
+				400E19ED20E4DD3200FDE8BA /* Clock.swift */,
+			);
+			path = Clock;
+			sourceTree = "<group>";
+		};
+		2E027E3D22A0910600E5E335 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				40AF2CA520A0083B00DDFF2D /* Main.storyboard */,
+				2E027E4022A0930A00E5E335 /* ClockTable */,
+				2E027E3F22A092CC00E5E335 /* ConfView */,
+				2E027E3E22A092A000E5E335 /* ClockView */,
+				400E1A0220ECAEF300FDE8BA /* ViewWithBannerAdController.swift */,
+				400E1A0620EDE80800FDE8BA /* ViewWithErrorController.swift */,
+				400E1A0820EE42EC00FDE8BA /* ModalController.swift */,
+				2E027E3922A08FC300E5E335 /* ClockTableCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2E027E3E22A092A000E5E335 /* ClockView */ = {
+			isa = PBXGroup;
+			children = (
+				40AF2CA120A0083B00DDFF2D /* CanvasViewController.swift */,
+				40AF2C9F20A0083B00DDFF2D /* ClockViewController.swift */,
+				400E19EB20E2399D00FDE8BA /* CanvasView.swift */,
+				40AF2CA320A0083B00DDFF2D /* ClockModelController.swift */,
+			);
+			path = ClockView;
+			sourceTree = "<group>";
+		};
+		2E027E3F22A092CC00E5E335 /* ConfView */ = {
+			isa = PBXGroup;
+			children = (
+				400E19F320E7861E00FDE8BA /* ConfViewController.swift */,
+				400E19F720E8CB6E00FDE8BA /* ConfDataViewController.swift */,
+				400E19F920E8CD5400FDE8BA /* ConfModelController.swift */,
+			);
+			path = ConfView;
+			sourceTree = "<group>";
+		};
+		2E027E4022A0930A00E5E335 /* ClockTable */ = {
+			isa = PBXGroup;
+			children = (
+				400E19FB20E9B55500FDE8BA /* ClockTableViewController.swift */,
+			);
+			path = ClockTable;
+			sourceTree = "<group>";
+		};
 		40AD71BB20EF04E20003CB54 /* yourtimewatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,27 +295,15 @@
 		40AF2C9C20A0083B00DDFF2D /* YourTime */ = {
 			isa = PBXGroup;
 			children = (
+				2E027E3D22A0910600E5E335 /* View */,
+				2E027E3B22A090E000E5E335 /* Clock */,
 				40AD71DE20EF07750003CB54 /* YourTime.entitlements */,
 				40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */,
-				40AF2C9F20A0083B00DDFF2D /* RootViewController.swift */,
-				40AF2CA120A0083B00DDFF2D /* DataViewController.swift */,
-				40AF2CA320A0083B00DDFF2D /* ModelController.swift */,
-				40AF2CA520A0083B00DDFF2D /* Main.storyboard */,
 				40AF2CA820A0083B00DDFF2D /* Assets.xcassets */,
 				40AF2CAA20A0083B00DDFF2D /* LaunchScreen.storyboard */,
 				40186A5020F3CA4600F88EA2 /* image.png */,
 				40AF2CAD20A0083B00DDFF2D /* Info.plist */,
 				400E19FF20EB361200FDE8BA /* GoogleService-Info.plist */,
-				400E19EB20E2399D00FDE8BA /* CanvasView.swift */,
-				400E19F320E7861E00FDE8BA /* ConfViewController.swift */,
-				400E19ED20E4DD3200FDE8BA /* Clock.swift */,
-				400E19F520E7C5BC00FDE8BA /* ClockList.swift */,
-				400E19F720E8CB6E00FDE8BA /* ConfDataViewController.swift */,
-				400E19F920E8CD5400FDE8BA /* ConfModelController.swift */,
-				400E19FB20E9B55500FDE8BA /* ClockTableViewController.swift */,
-				400E1A0220ECAEF300FDE8BA /* ViewWithBannerAdController.swift */,
-				400E1A0620EDE80800FDE8BA /* ViewWithErrorController.swift */,
-				400E1A0820EE42EC00FDE8BA /* ModalController.swift */,
 				409DE3DC20F4E97B00F5F194 /* Localizable.strings */,
 			);
 			path = YourTime;
@@ -489,6 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E027E3A22A08FC300E5E335 /* ClockTableCell.xib in Resources */,
 				40AF2CAC20A0083B00DDFF2D /* LaunchScreen.storyboard in Resources */,
 				409DE3DA20F4E97B00F5F194 /* Localizable.strings in Resources */,
 				400E1A0020EB361200FDE8BA /* GoogleService-Info.plist in Resources */,
@@ -612,6 +657,7 @@
 			files = (
 				402F36FC20F34BDD00FC5BCD /* Clock.swift in Sources */,
 				40AD71CE20EF04E50003CB54 /* ExtensionDelegate.swift in Sources */,
+				2E027E3C22A090F600E5E335 /* ClockList.swift in Sources */,
 				40AD71CC20EF04E50003CB54 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,16 +666,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40AF2CA020A0083B00DDFF2D /* RootViewController.swift in Sources */,
+				40AF2CA020A0083B00DDFF2D /* ClockViewController.swift in Sources */,
 				400E1A0720EDE80800FDE8BA /* ViewWithErrorController.swift in Sources */,
 				400E19F620E7C5BC00FDE8BA /* ClockList.swift in Sources */,
 				400E19F820E8CB6E00FDE8BA /* ConfDataViewController.swift in Sources */,
-				40AF2CA420A0083B00DDFF2D /* ModelController.swift in Sources */,
+				40AF2CA420A0083B00DDFF2D /* ClockModelController.swift in Sources */,
 				400E19F420E7861E00FDE8BA /* ConfViewController.swift in Sources */,
 				400E1A0320ECAEF300FDE8BA /* ViewWithBannerAdController.swift in Sources */,
 				400E19FC20E9B55500FDE8BA /* ClockTableViewController.swift in Sources */,
 				400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */,
-				40AF2CA220A0083B00DDFF2D /* DataViewController.swift in Sources */,
+				40AF2CA220A0083B00DDFF2D /* CanvasViewController.swift in Sources */,
 				402F36FA20F11E8900FC5BCD /* Clock.swift in Sources */,
 				40AF2C9E20A0083B00DDFF2D /* AppDelegate.swift in Sources */,
 				400E1A0920EE42EC00FDE8BA /* ModalController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DataViewController: ViewWithBannerAdController {
+class CanvasViewController: ViewWithBannerAdController {
     
     @IBOutlet weak var easterEggLabel: UILabel!
     @IBOutlet var doubleTapRecognizer: UITapGestureRecognizer!
@@ -40,7 +40,7 @@ class DataViewController: ViewWithBannerAdController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let backgroundColor = DataViewController.getColor()
+        let backgroundColor = CanvasViewController.getColor()
         self.canvasView.backgroundColor = backgroundColor
         self.canvasView.foregroundColor = backgroundColor == .black ? .white : .black
         self.clockName.title = self.dataObject.name

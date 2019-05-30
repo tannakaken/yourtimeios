@@ -17,22 +17,22 @@ import UIKit
  */
 
 
-class ModelController: NSObject, UIPageViewControllerDataSource {
+class ClockModelController: NSObject, UIPageViewControllerDataSource {
 
-    func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
+    func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> CanvasViewController? {
         // Return the data view controller for the given index.
         if (ClockList.count() == 0) || (index >= ClockList.count()) {
             return nil
         }
 
         // Create a new view controller and pass suitable data.
-        let dataViewController = storyboard.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
+        let dataViewController = storyboard.instantiateViewController(withIdentifier: "DataViewController") as! CanvasViewController
         dataViewController.dataObject = ClockList.clock(at: index)
         dataViewController.index = index
         return dataViewController
     }
 
-    func indexOfViewController(_ viewController: DataViewController) -> Int {
+    func indexOfViewController(_ viewController: CanvasViewController) -> Int {
         // Return the index of the given data view controller.
         // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
         return ClockList.index(of: viewController.dataObject) ?? NSNotFound
@@ -41,7 +41,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     // MARK: - Page View Controller Data Source
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        var index = self.indexOfViewController(viewController as! DataViewController)
+        var index = self.indexOfViewController(viewController as! CanvasViewController)
         if (index == 0) || (index == NSNotFound) {
             return nil
         }
@@ -51,7 +51,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var index = self.indexOfViewController(viewController as! DataViewController)
+        var index = self.indexOfViewController(viewController as! CanvasViewController)
         if index == NSNotFound {
             return nil
         }
