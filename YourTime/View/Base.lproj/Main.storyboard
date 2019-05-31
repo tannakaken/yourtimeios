@@ -375,9 +375,8 @@
                                             <action selector="tapExclamation:" destination="S4R-Ja-viH" eventType="touchUpInside" id="h2g-jz-w9z"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUb-EX-YsE">
-                                        <rect key="frame" x="68" y="8" width="199" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUb-EX-YsE">
+                                        <rect key="frame" x="0.0" y="8" width="335" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -389,7 +388,10 @@
                                     <constraint firstItem="OW7-hY-b2v" firstAttribute="bottom" secondItem="cj5-G4-63K" secondAttribute="bottom" constant="100" id="2od-us-iLY"/>
                                     <constraint firstItem="oJ8-Kr-Aa6" firstAttribute="leading" secondItem="OW7-hY-b2v" secondAttribute="leading" constant="30" id="GrI-7U-koW"/>
                                     <constraint firstItem="OW7-hY-b2v" firstAttribute="trailing" secondItem="cj5-G4-63K" secondAttribute="trailing" constant="30" id="LWb-T9-ynb"/>
+                                    <constraint firstItem="RUb-EX-YsE" firstAttribute="centerX" secondItem="OW7-hY-b2v" secondAttribute="centerX" id="PJI-1l-lJb"/>
                                     <constraint firstItem="OW7-hY-b2v" firstAttribute="bottom" secondItem="oJ8-Kr-Aa6" secondAttribute="bottom" constant="100" id="m4y-z2-LSI"/>
+                                    <constraint firstItem="RUb-EX-YsE" firstAttribute="width" secondItem="s1b-V9-EN7" secondAttribute="width" id="nKn-z5-FGr"/>
+                                    <constraint firstItem="RUb-EX-YsE" firstAttribute="top" secondItem="OW7-hY-b2v" secondAttribute="top" constant="8" id="zId-79-r69"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="OW7-hY-b2v"/>
                                 <connections>
@@ -434,7 +436,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="NVC-D4-fIt">
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="NVC-D4-fIt">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
@@ -480,8 +482,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="psJ-Ld-pOP"/>
+        <segue reference="B9H-tp-I7w"/>
         <segue reference="iO5-wI-j6X"/>
-        <segue reference="816-wd-CA8"/>
+        <segue reference="te4-gv-n5o"/>
     </inferredMetricsTieBreakers>
 </document>

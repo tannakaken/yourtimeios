@@ -87,11 +87,14 @@ class CanvasViewController: ViewWithBannerAdController {
         "時の娘",
         "たんぽぽ娘",
         "笑うな",
-        "七回死んだ男"
+        "七回死んだ男",
+        "バック・トゥ・ザ・フューチャー",
+        "12モンキーズ",
+        "アベンジャーズ/エンドゲーム"
     ]
     
     @IBAction func doubleTapCanvas(_ sender: Any) {
-        self.easterEggLabel.text = randomMessage[Int(arc4random_uniform(3))]
+        self.easterEggLabel.text = randomMessage[Int(arc4random_uniform(UInt32(randomMessage.count)))]
         doubleTapRecognizer.isEnabled = false
         UIView.animate(withDuration: 1.0,
                        delay: 0.0,
