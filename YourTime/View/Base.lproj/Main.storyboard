@@ -211,7 +211,7 @@
         <!--Modal Controller-->
         <scene sceneID="3A2-ik-aVX">
             <objects>
-                <viewController storyboardIdentifier="Modal" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tTZ-4V-paW" customClass="ModalController" customModule="YourTime" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Modal" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tTZ-4V-paW" customClass="ModalController" customModule="YourTime" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="1" contentMode="scaleToFill" id="iKO-0s-1Jc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
