@@ -12,7 +12,7 @@ import WatchConnectivity
 
 
 class InterfaceController: WKInterfaceController, WCSessionDelegate {
-    
+    var active = false
     var clocks: [Clock] = Clock.defaultClocks() {
         didSet {
             if self.clocks.count == 0 {
@@ -96,6 +96,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
         centerY = self.contentFrame.height / 2
         radius = min(centerX,centerY)
         dx = radius / 10
+        active = true
         self.draw()
         self.animation()
     }
@@ -170,6 +171,9 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     }
     
     func animation() {
+        if !active {
+            return
+        }
         self.animate(withDuration: 0.1, animations: {
             if self.animateRight {
                 if self.fadeout {
@@ -219,6 +223,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        active = false
     }
     
     // MARK: - WCSession delegate methods
