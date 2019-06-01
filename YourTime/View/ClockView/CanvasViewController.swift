@@ -17,6 +17,7 @@ class CanvasViewController: ViewWithBannerAdController {
     @IBOutlet weak var canvasView: CanvasView!
     var dataObject: Clock = Clock.defaultClock()
     var index : Int = 0
+    var appear = false;
     
     static func getColor() -> UIColor {
         if UserDefaults.standard.bool(forKey: "blackBackground") {
@@ -46,10 +47,19 @@ class CanvasViewController: ViewWithBannerAdController {
         self.clockName.title = self.dataObject.name
         ClockList.index = self.index
         self.canvasView.clock = self.dataObject
+        self.appear = true
         self.animation()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.appear = false
+    }
+    
     func animation() {
+        if !self.appear {
+            return
+        } 
         UIView.animate(withDuration: 0.5, animations: {
             let now = Date()
             let millisecond = now.millisecond()
