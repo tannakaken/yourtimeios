@@ -373,6 +373,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cj5-G4-63K">
                                         <rect key="frame" x="314" y="532" width="30" height="48"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="questionButton"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="?"/>
                                         <connections>
@@ -381,6 +382,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJ8-Kr-Aa6">
                                         <rect key="frame" x="30" y="532" width="30" height="48"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="exclamationButton"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="!"/>
                                         <connections>
@@ -395,6 +397,7 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="canvas"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="OW7-hY-b2v" firstAttribute="bottom" secondItem="cj5-G4-63K" secondAttribute="bottom" constant="70" id="2od-us-iLY"/>
@@ -494,8 +497,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="psJ-Ld-pOP"/>
-        <segue reference="LYG-HN-GQ5"/>
+        <segue reference="B9H-tp-I7w"/>
+        <segue reference="iO5-wI-j6X"/>
         <segue reference="816-wd-CA8"/>
     </inferredMetricsTieBreakers>
 </document>

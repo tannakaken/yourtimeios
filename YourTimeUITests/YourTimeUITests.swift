@@ -31,6 +31,11 @@ class YourTimeUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        
+        XCTAssert(app.buttons["questionButton"].exists)
+        XCTAssert(app.buttons["exclamationButton"].exists)
+        
     }
     
 }
