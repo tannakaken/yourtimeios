@@ -18,9 +18,9 @@ class ConfDataViewController: ViewWithBannerAdController, UIPickerViewDelegate, 
     @IBOutlet weak var clockwiseField: UISegmentedControl!
     
     let data : [[Int]] = [
-        (Array<Int>)(1...100),
-        (Array<Int>)(1...100),
-        (Array<Int>)(1...100)
+        (Array<Int>)(1...120),
+        (Array<Int>)(1...120),
+        (Array<Int>)(1...120)
     ]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
