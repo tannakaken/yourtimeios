@@ -77,7 +77,7 @@ class Clock: NSObject {
     }
     
     class func defaultClock() -> Clock {
-        return Clock(name: NSLocalizedString("ordinaltime", comment: ""),
+        return Clock(name: NSLocalizedString("newtime", comment: ""),
                      ampm: .ampm,
                      hours: 12,
                      minutes: 60,
@@ -88,7 +88,13 @@ class Clock: NSObject {
     
     class func defaultClocks() -> [Clock] {
         return [
-            Clock.defaultClock(),
+            Clock(name: NSLocalizedString("ordinaltime", comment: ""),
+                  ampm: .ampm,
+                  hours: 12,
+                  minutes: 60,
+                  seconds: 60,
+                  dialFromOne: true,
+                  clockwise: true),
             Clock(name: NSLocalizedString("24hourconterclock", comment: ""),
                   ampm: .am,
                   hours: 24,
