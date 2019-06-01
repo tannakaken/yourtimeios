@@ -28,14 +28,25 @@ class YourTimeUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testQuestionButton() {
         let app = XCUIApplication()
+        let questionButton = app.buttons["questionButton"]
         
-        XCTAssert(app.buttons["questionButton"].exists)
-        XCTAssert(app.buttons["exclamationButton"].exists)
+        XCTAssert(questionButton.isHittable)
+        XCTAssertFalse(app.buttons["closeButton"].exists)
+        questionButton.tap()
+        let closeButton = app.buttons["closeButton"]
+        XCTAssert(closeButton.exists)
         
+        closeButton.tap()
+        XCTAssertFalse(app.buttons["closeButton"].exists)
+    }
+    
+    func testExclamationButton() {
+        let app = XCUIApplication()
+        let exclamationButton = app.buttons["exclamationButton"]
+        
+        XCTAssert(exclamationButton.isHittable)
     }
     
 }
