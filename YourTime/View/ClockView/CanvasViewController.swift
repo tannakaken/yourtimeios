@@ -59,7 +59,7 @@ class CanvasViewController: ViewWithBannerAdController {
     func animation() {
         if !self.appear {
             return
-        } 
+        }
         UIView.animate(withDuration: 0.5, animations: {
             let now = Date()
             let millisecond = now.millisecond()
@@ -94,10 +94,18 @@ class CanvasViewController: ViewWithBannerAdController {
         "輪廻の蛇",
         "笹の葉ラプソディ",
         "タイムマシン",
+        "逆回りした時計",
+        "雷のような音",
+        "2人の救世主",
+        "クレープを二度食えば",
+        "カットバック",
         "時の娘",
         "たんぽぽ娘",
         "笑うな",
+        "時間衝突",
+        "時間帝国の崩壊",
         "七回死んだ男",
+        "恋はデジャ・ブ",
         "バック・トゥ・ザ・フューチャー",
         "12モンキーズ",
         "アベンジャーズ/エンドゲーム"
