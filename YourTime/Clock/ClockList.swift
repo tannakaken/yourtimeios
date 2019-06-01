@@ -80,6 +80,7 @@ struct ClockList {
     }
     
     static func save() {
+        print("save data")
         let manager = FileManager.default
         var text = ""
         for clock in self.clocks {
