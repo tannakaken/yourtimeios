@@ -342,7 +342,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xww-uY-FK4">
-                                <rect key="frame" x="0.0" y="14" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="38"/>
                                 <items>
                                     <navigationItem title="Clock Name" id="cx9-Cz-tmT">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="mWo-HP-Sa2">
@@ -420,7 +420,7 @@
                             <constraint firstItem="Xww-uY-FK4" firstAttribute="trailing" secondItem="K9I-jD-KjA" secondAttribute="trailing" id="aey-3d-GmE"/>
                             <constraint firstItem="K9I-jD-KjA" firstAttribute="bottom" secondItem="s1b-V9-EN7" secondAttribute="bottom" constant="20" id="l06-a6-QX9"/>
                             <constraint firstItem="s1b-V9-EN7" firstAttribute="leading" secondItem="K9I-jD-KjA" secondAttribute="leading" constant="20" id="oYM-NR-Dzh"/>
-                            <constraint firstItem="Xww-uY-FK4" firstAttribute="top" secondItem="ZwX-cT-FIQ" secondAttribute="top" constant="14" id="unf-LA-68J"/>
+                            <constraint firstItem="Xww-uY-FK4" firstAttribute="top" secondItem="K9I-jD-KjA" secondAttribute="top" id="unf-LA-68J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K9I-jD-KjA"/>
                     </view>
@@ -495,7 +495,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="psJ-Ld-pOP"/>
-        <segue reference="iO5-wI-j6X"/>
+        <segue reference="LYG-HN-GQ5"/>
         <segue reference="816-wd-CA8"/>
     </inferredMetricsTieBreakers>
 </document>
