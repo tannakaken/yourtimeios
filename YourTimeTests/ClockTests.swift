@@ -34,13 +34,7 @@ class ClockTests: XCTestCase {
     }
     
     func testCustomizeClock() {
-        let clock = Clock(name: "decimal clock",
-                          ampm: .am,
-                          hours: 10,
-                          minutes: 100,
-                          seconds: 100,
-                          dialFromOne: false,
-                          clockwise:true)
+        let clock = customizeClock()
         
         XCTAssertEqual(clock.name, "decimal clock")
         XCTAssertEqual(clock.hours, 10)
@@ -51,6 +45,33 @@ class ClockTests: XCTestCase {
         XCTAssertEqual(clock.clockwise, true)
     }
     
+    func testDefaultClockCalculation() {
+        let clock = Clock.defaultClock()
+        let time = clock.calc(time: 1560000000)
+        
+        XCTAssertEqual(time.hour,1+20.0/60.0)
+        XCTAssertEqual(time.minute, 20)
+        XCTAssertEqual(time.second, 0)
+    }
+    
+    func testCustomizeClockCalculation() {
+        let clock = customizeClock()
+        let time = clock.calc(time: 1560000000)
+        
+        XCTAssertEqual(time.hour,0.55)
+        XCTAssertEqual(time.minute, 55)
+        XCTAssertEqual(time.second, 55)
+    }
+    
+    func customizeClock() -> Clock {
+        return Clock(name: "decimal clock",
+                     ampm: .am,
+                     hours: 10,
+                     minutes: 100,
+                     seconds: 100,
+                     dialFromOne: false,
+                     clockwise:true)
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
