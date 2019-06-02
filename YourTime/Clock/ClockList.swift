@@ -9,6 +9,12 @@
 import Foundation
 import WatchConnectivity
 
+extension URL {
+    func fileExists() -> Bool {
+        return self.isFileURL ? FileManager.default.fileExists(atPath: self.path) : false
+    }
+}
+
 struct ClockList {
     static let limit: Int = 20
     static var index: Int = UserDefaults.standard.integer(forKey: "index") {
@@ -25,15 +31,17 @@ struct ClockList {
     
     private init() {}
     
+    static private func getClockFileURL() -> URL? {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("clocks.txt")
+    }
+    
     static private func load() -> [Clock] {
-        let manager = FileManager.default
-        if let dir = manager.urls( for: .documentDirectory, in: .userDomainMask ).first {
-            let filePath = dir.appendingPathComponent("clocks.txt")
-            if (!manager.fileExists(atPath: filePath.path)) {
+        if let clockFileURL = getClockFileURL() {
+            if !clockFileURL.fileExists() {
                 return Clock.defaultClocks()
             }
             do {
-                let text = try String( contentsOf: filePath, encoding: String.Encoding.utf8 )
+                let text = try String( contentsOf: clockFileURL, encoding: String.Encoding.utf8 )
                 let lines = text.components(separatedBy: "\n")
                 let data = lines[0..<(lines.count-1)].map {str in return str.components(separatedBy: "\t")}
                 var clocks : [Clock] = []
@@ -81,7 +89,6 @@ struct ClockList {
     
     static func save() {
         print("save data")
-        let manager = FileManager.default
         var text = ""
         for clock in self.clocks {
             let datum = [clock.name,
@@ -94,18 +101,23 @@ struct ClockList {
             ]
             text += datum.joined(separator: "\t") + "\n"
         }
-        if let dir = manager.urls( for: .documentDirectory, in: .userDomainMask ).first {
-            let filePath = dir.appendingPathComponent("clocks.txt")
+        if let clockFileURL = getClockFileURL() {
             do {
-                try text.write( to: filePath, atomically: false, encoding: String.Encoding.utf8 )
+                try text.write( to: clockFileURL, atomically: false, encoding: String.Encoding.utf8 )
             } catch {
                 error_message = NSLocalizedString("unwritablefile", comment: "")
             }
             let session = WCSession.default
-            session.transferFile(filePath, metadata: nil)
+            session.transferFile(clockFileURL, metadata: nil)
         } else {
             error_message = NSLocalizedString("unwritabledirectory", comment: "")
         }
+    }
+    
+    static func reset() {
+        clocks = Clock.defaultClocks()
+        index = 0
+        save()
     }
     
     static func count() -> Int {
