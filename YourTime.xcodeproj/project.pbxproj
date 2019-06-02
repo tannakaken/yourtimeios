@@ -791,7 +791,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.yourtime.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -813,7 +813,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.yourtime.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -832,7 +832,7 @@
 				DEVELOPMENT_TEAM = T5BSM6A795;
 				IBSC_MODULE = yourtimewatch_Extension;
 				INFOPLIST_FILE = yourtimewatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.yourtime.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -851,7 +851,7 @@
 				DEVELOPMENT_TEAM = T5BSM6A795;
 				IBSC_MODULE = yourtimewatch_Extension;
 				INFOPLIST_FILE = yourtimewatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.yourtime.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -990,7 +990,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.yourtime;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1010,7 +1010,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.yourtime;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
