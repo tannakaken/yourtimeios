@@ -17,12 +17,14 @@ class YourTimeUITests: XCTestCase {
         let manager = FileManager.default
         if let clockFilePath = manager.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("clocks.txt") {
             try? manager.removeItem(at: clockFilePath)
-        }
-        UserDefaults.standard.set(0, forKey: "index")
-        UserDefaults.standard.set(false, forKey: "blackBackground")
+        } // データを消去
+        UserDefaults.standard.set(0, forKey: "index") // ページの初期値は0
+        UserDefaults.standard.set(false, forKey: "blackBackground") // 背景の初期値は黒ではなく白
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
+        XCUIApplication().launchArguments += ["-AppleLanguages", "(en)"]
+        XCUIApplication().launchArguments += ["-AppleLocale", "en_US"]
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
@@ -36,13 +38,13 @@ class YourTimeUITests: XCTestCase {
     func testQuestionButton() {
         let app = XCUIApplication()
         let questionButton = app.buttons["questionButton"]
-        
         XCTAssert(questionButton.isHittable)
         XCTAssertFalse(app.buttons["closeButton"].exists)
+        
         questionButton.tap()
+
         let closeButton = app.buttons["closeButton"]
         XCTAssert(closeButton.exists)
-        
         closeButton.tap()
         XCTAssertFalse(app.buttons["closeButton"].exists)
     }
@@ -50,25 +52,32 @@ class YourTimeUITests: XCTestCase {
     func testExclamationButton() {
         let app = XCUIApplication()
         let exclamationButton = app.buttons["exclamationButton"]
-        
         XCTAssert(exclamationButton.isHittable)
+        
         exclamationButton.tap()
+        
         XCTAssert(app.buttons["exclamationButton"].isHittable)
     }
     
-    func testConfNameEqualNavigationBarTitle() {
+    func testConfButton() {
         let app = XCUIApplication()
         let confButton = app.navigationBars.buttons["confButton"]
         XCTAssert(confButton.isHittable)
         
         confButton.tap()
         
-        let nameTextField = app.textFields["nameTextField"]
-        XCTAssert(nameTextField.isHittable)
-        let name = nameTextField.value as! String
+        XCTAssert(app.textFields["nameTextField"].isHittable)
+    }
+    
+    func testConfNameEqualNavigationBarTitle() {
+        let app = XCUIApplication()
+        app.navigationBars.buttons["confButton"].tap()
+        let name = app.textFields["nameTextField"].value as! String
         let clockButton = app.navigationBars.buttons["clockButton"]
         XCTAssert(clockButton.isHittable)
+        
         clockButton.tap()
+        
         XCTAssert(app.navigationBars[name].exists)
     }
     
@@ -78,11 +87,12 @@ class YourTimeUITests: XCTestCase {
         let textField = app.textFields["nameTextField"]
         let name = textField.value as! String
         let changedName = changeString(str: name)
+        
         textField.tap()
         textField.buttons["Clear text"].tap()
         textField.typeText(changedName)
-        
         app.navigationBars.buttons["clockButton"].tap()
+        
         XCTAssert(app.navigationBars[changedName].exists)
     }
     
@@ -91,5 +101,16 @@ class YourTimeUITests: XCTestCase {
             return String(str.prefix(str.count-1))
         }
         return str + "1"
+    }
+    
+    func testListButton() {
+        let app = XCUIApplication()
+        let listButton = app.navigationBars.buttons["listButtonFromCanvas"]
+        XCTAssert(listButton.isHittable)
+        
+        listButton.tap()
+        
+        XCTAssert(app.buttons["Edit"].isHittable)
+        XCTAssert(app.buttons["+"].isHittable)
     }
 }
