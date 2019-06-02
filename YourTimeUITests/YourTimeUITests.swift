@@ -23,8 +23,6 @@ class YourTimeUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launchArguments += ["-AppleLanguages", "(en)"]
-        XCUIApplication().launchArguments += ["-AppleLocale", "en_US"]
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
@@ -115,7 +113,7 @@ class YourTimeUITests: XCTestCase {
         
         listButton.tap()
         
-        XCTAssert(app.buttons["Edit"].isHittable)
-        XCTAssert(app.buttons["+"].isHittable)
+        XCTAssert(app.buttons["editButton"].isHittable)
+        XCTAssert(app.buttons["addButton"].isHittable)
     }
 }

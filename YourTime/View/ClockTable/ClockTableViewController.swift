@@ -18,6 +18,7 @@ class ClockTableViewController: UITableViewController {
         super.viewDidLoad()
 
         navigation.leftBarButtonItem = self.editButtonItem
+        navigation.leftBarButtonItem?.accessibilityIdentifier = "editButton"
         
         self.tableView.register(UINib(nibName: "ClockTableCell", bundle: nil), forCellReuseIdentifier: "ClockTableCell")
     }

@@ -468,6 +468,7 @@
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Bq-4u-M0f">
                                             <rect key="frame" x="364" y="4" width="30" height="36"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="addButton"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <state key="normal" title="+"/>
                                             <connections>
@@ -507,6 +508,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="psJ-Ld-pOP"/>
         <segue reference="LYG-HN-GQ5"/>
-        <segue reference="816-wd-CA8"/>
+        <segue reference="te4-gv-n5o"/>
     </inferredMetricsTieBreakers>
 </document>
