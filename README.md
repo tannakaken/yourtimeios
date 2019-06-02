@@ -49,7 +49,9 @@ appleが邪な考えを改めて、時計アプリにApple Watchを解放する�
 適当なディレクトリで、
 
 `git clone https://github.com/tannakaken/yourtimeios.git`
+
 `cd yourtimeios`
+
 `pod install`
 
 します。
