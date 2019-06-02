@@ -11,11 +11,34 @@ import UIKit
 class ModalController: UIViewController {
     
     @IBOutlet weak var popup: UIView!
+    @IBOutlet weak var profileLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         popup.layer.cornerRadius = popup.frame.size.width * 0.05
+        profileLabel.attributedText = attributedProfile()
+    }
+    
+    private func attributedProfile() -> NSAttributedString {
+        let profile = NSLocalizedString("profile", comment: "")
+        let lines = profile.components(separatedBy: "\n")
+        let authorAttributes:[NSAttributedString.Key : Any] = [
+            .font : UIFont.systemFont(ofSize: 17.0)
+        ]
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.headIndent = 10
+        paragraphStyle.firstLineHeadIndent = 10
+        let profileAttributes:[NSAttributedString.Key : Any] = [
+            .font : UIFont.systemFont(ofSize: 14.0),
+            .paragraphStyle : paragraphStyle
+        ]
+        let attributedText = NSMutableAttributedString(string: lines[0] + "\n", attributes: authorAttributes)
+        for line in lines[1...] {
+            let attributedLine = NSAttributedString(string: line + "\n", attributes: profileAttributes)
+            attributedText.append(attributedLine)
+        }
+        return attributedText
     }
 
     override func didReceiveMemoryWarning() {

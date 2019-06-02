@@ -11,9 +11,6 @@
 /* Class = "UIButton"; normalTitle = "List"; ObjectID = "DTa-Mu-deH"; */
 "DTa-Mu-deH.normalTitle" = "一覧";
 
-/* Class = "UILabel"; text = "Maker of nonsense Gadgets."; ObjectID = "E8x-oO-YgA"; */
-"E8x-oO-YgA.text" = "趣味。役に立たないものを世に";
-
 /* Class = "UILabel"; text = "The dial starts from"; ObjectID = "EN6-cs-UkB"; */
 "EN6-cs-UkB.text" = "文字盤は";
 
@@ -25,9 +22,6 @@
 
 /* Class = "UISegmentedControl"; GW4-Pw-5yC.segmentTitles[2] = "3"; ObjectID = "GW4-Pw-5yC"; */
 "GW4-Pw-5yC.segmentTitles[2]" = "3（前中後）";
-
-/* Class = "UILabel"; text = "Rust of Occam's Rasor."; ObjectID = "HxF-M9-TBX"; */
-"HxF-M9-TBX.text" = "放つオッカムの剃刀の錆。";
 
 /* Class = "UILabel"; text = "AM/PM"; ObjectID = "MB9-bk-6jA"; */
 "MB9-bk-6jA.text" = "午数";
@@ -43,9 +37,6 @@
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "RUb-EX-YsE"; */
 "RUb-EX-YsE.text" = "Label";
-
-/* Class = "UILabel"; text = "An Amateur polymathematician."; ObjectID = "THR-bE-T7a"; */
-"THR-bE-T7a.text" = "数学・プログラミング・小説が";
 
 /* Class = "UILabel"; text = "The Related Novel"; ObjectID = "TTO-yy-o8m"; */
 "TTO-yy-o8m.text" = "関連小説";
@@ -73,12 +64,6 @@
 
 /* Class = "UINavigationItem"; title = "The list of times"; ObjectID = "eCL-A9-HMg"; */
 "eCL-A9-HMg.title" = "時間の一覧";
-
-/* Class = "UILabel"; text = "author："; ObjectID = "fbm-do-UZ3"; */
-"fbm-do-UZ3.text" = "作者：";
-
-/* Class = "UILabel"; text = "Tannakaken"; ObjectID = "gfP-gF-Of3"; */
-"gfP-gF-Of3.text" = "淡中 圏";
 
 /* Class = "UILabel"; text = "Needles go on"; ObjectID = "jCr-Tv-nkg"; */
 "jCr-Tv-nkg.text" = "針は";
