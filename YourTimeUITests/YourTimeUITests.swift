@@ -89,11 +89,16 @@ class YourTimeUITests: XCTestCase {
         let changedName = changeString(str: name)
         
         textField.tap()
-        textField.buttons["Clear text"].tap()
+        clearText(textField)
         textField.typeText(changedName)
         app.navigationBars.buttons["clockButton"].tap()
         
         XCTAssert(app.navigationBars[changedName].exists)
+    }
+    
+    func clearText(_ textField : XCUIElement) {
+        let text = textField.value as! String
+        textField.typeText(text.map { _ in "\u{8}" }.joined(separator: ""))
     }
     
     func changeString(str : String) -> String {
