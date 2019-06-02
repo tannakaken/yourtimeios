@@ -115,5 +115,47 @@ class YourTimeUITests: XCTestCase {
         
         XCTAssert(app.buttons["editButton"].isHittable)
         XCTAssert(app.buttons["addButton"].isHittable)
+        XCTAssert(app.tables.cells.firstMatch.isHittable)
     }
+    
+    func testListButtonFromConf() {
+        let app = XCUIApplication()
+        app.navigationBars.buttons["confButton"].tap()
+        let listButton = app.navigationBars.buttons["listButtonFromConf"]
+        XCTAssert(listButton.isHittable)
+        
+        listButton.tap()
+        
+        XCTAssert(app.buttons["editButton"].isHittable)
+        XCTAssert(app.buttons["addButton"].isHittable)
+        XCTAssert(app.tables.cells.firstMatch.isHittable)
+    }
+    
+    func testListToCanvas() {
+        let app = XCUIApplication()
+        app.navigationBars.buttons["confButton"].tap()
+        let name = app.textFields["nameTextField"].value as! String
+        
+        app.navigationBars.buttons["listButtonFromConf"].tap()
+        
+        let cell = app.tables.cells.containing(.staticText, identifier: name).firstMatch
+        XCTAssert(cell.exists)
+        
+        cell.tap()
+        
+        XCTAssert(app.navigationBars[name].exists)
+    }
+    
+    func testListToConf() {
+        let app = XCUIApplication()
+        app.navigationBars.buttons["confButton"].tap()
+        let name = app.textFields["nameTextField"].value as! String
+        
+        app.navigationBars.buttons["listButtonFromConf"].tap()
+        
+        app.tables.cells.containing(.staticText, identifier: name).firstMatch.firstMatch.tap()
+        
+        XCTAssertEqual(name, app.textFields["nameTextField"].value as! String)
+    }
+    
 }
