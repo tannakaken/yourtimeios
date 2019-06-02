@@ -66,6 +66,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d22-7C-uPo">
                                                 <rect key="frame" x="355" y="7" width="39" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="clockButton"/>
                                                 <state key="normal" title="Clock"/>
                                                 <connections>
                                                     <segue destination="703-4V-yAM" kind="presentation" id="816-wd-CA8"/>
@@ -142,8 +143,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dRe-gJ-qlp">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dRe-gJ-qlp">
                                         <rect key="frame" x="67" y="30" width="337" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="nameTextField"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -352,6 +354,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="DTa-Mu-deH">
                                                 <rect key="frame" x="20" y="7" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="listButtonFromCanvas"/>
                                                 <state key="normal" title="List"/>
                                                 <connections>
                                                     <segue destination="qE1-au-qQN" kind="presentation" id="B9H-tp-I7w"/>
@@ -362,6 +365,7 @@
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MGD-YS-AW2">
                                                 <rect key="frame" x="361" y="7" width="33" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="confButton"/>
                                                 <state key="normal" title="Conf"/>
                                                 <connections>
                                                     <segue destination="Q7b-2Q-ev9" kind="presentation" identifier="toConfViewController" id="iO5-wI-j6X"/>
@@ -500,7 +504,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B9H-tp-I7w"/>
+        <segue reference="psJ-Ld-pOP"/>
         <segue reference="iO5-wI-j6X"/>
         <segue reference="816-wd-CA8"/>
     </inferredMetricsTieBreakers>

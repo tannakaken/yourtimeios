@@ -47,6 +47,44 @@ class YourTimeUITests: XCTestCase {
         let exclamationButton = app.buttons["exclamationButton"]
         
         XCTAssert(exclamationButton.isHittable)
+        exclamationButton.tap()
+        XCTAssert(app.buttons["exclamationButton"].isHittable)
     }
     
+    func testConfNameEqualNavigationBarTitle() {
+        let app = XCUIApplication()
+        let confButton = app.navigationBars.buttons["confButton"]
+        XCTAssert(confButton.isHittable)
+        
+        confButton.tap()
+        
+        let nameTextField = app.textFields["nameTextField"]
+        XCTAssert(nameTextField.isHittable)
+        let name = nameTextField.value as! String
+        let clockButton = app.navigationBars.buttons["clockButton"]
+        XCTAssert(clockButton.isHittable)
+        clockButton.tap()
+        XCTAssert(app.navigationBars[name].exists)
+    }
+    
+    func testIfConfNameChangedNavigationBarTitleChangeSame() {
+        let app = XCUIApplication()
+        app.navigationBars.buttons["confButton"].tap()
+        let textField = app.textFields["nameTextField"]
+        let name = textField.value as! String
+        let changedName = changeString(str: name)
+        textField.tap()
+        textField.buttons["Clear text"].tap()
+        textField.typeText(changedName)
+        
+        app.navigationBars.buttons["clockButton"].tap()
+        XCTAssert(app.navigationBars[changedName].exists)
+    }
+    
+    func changeString(str : String) -> String {
+        if (str.count > 2) {
+            return String(str.prefix(str.count-1))
+        }
+        return str + "1"
+    }
 }
