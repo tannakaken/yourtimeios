@@ -19,6 +19,7 @@ class YourTimeUITests: XCTestCase {
             try? manager.removeItem(at: clockFilePath)
         }
         UserDefaults.standard.set(0, forKey: "index")
+        UserDefaults.standard.set(false, forKey: "blackBackground")
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
