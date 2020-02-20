@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2E027E3A22A08FC300E5E335 /* ClockTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E027E3922A08FC300E5E335 /* ClockTableCell.xib */; };
-		2E027E3C22A090F600E5E335 /* ClockList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19F520E7C5BC00FDE8BA /* ClockList.swift */; };
 		2E027E4222A0942600E5E335 /* ClockTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E027E4122A0942600E5E335 /* ClockTableCell.swift */; };
 		2E027E4622A2298900E5E335 /* UIScrollView+TouchEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E027E4522A2298900E5E335 /* UIScrollView+TouchEvent.swift */; };
 		400E19EC20E2399D00FDE8BA /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19EB20E2399D00FDE8BA /* CanvasView.swift */; };
@@ -23,15 +22,7 @@
 		400E1A0920EE42EC00FDE8BA /* ModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E1A0820EE42EC00FDE8BA /* ModalController.swift */; };
 		40186A5120F3CA4600F88EA2 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = 40186A5020F3CA4600F88EA2 /* image.png */; };
 		402F36FA20F11E8900FC5BCD /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19ED20E4DD3200FDE8BA /* Clock.swift */; };
-		402F36FC20F34BDD00FC5BCD /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400E19ED20E4DD3200FDE8BA /* Clock.swift */; };
 		409DE3DA20F4E97B00F5F194 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 409DE3DC20F4E97B00F5F194 /* Localizable.strings */; };
-		40AD71BE20EF04E20003CB54 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40AD71BC20EF04E20003CB54 /* Interface.storyboard */; };
-		40AD71C020EF04E40003CB54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40AD71BF20EF04E40003CB54 /* Assets.xcassets */; };
-		40AD71C720EF04E50003CB54 /* yourtimewatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 40AD71C620EF04E50003CB54 /* yourtimewatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		40AD71CC20EF04E50003CB54 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AD71CB20EF04E50003CB54 /* InterfaceController.swift */; };
-		40AD71CE20EF04E50003CB54 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AD71CD20EF04E50003CB54 /* ExtensionDelegate.swift */; };
-		40AD71D020EF04E50003CB54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40AD71CF20EF04E50003CB54 /* Assets.xcassets */; };
-		40AD71D520EF04E50003CB54 /* yourtimewatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 40AD71BA20EF04E10003CB54 /* yourtimewatch.app */; };
 		40AF2C9E20A0083B00DDFF2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9D20A0083B00DDFF2D /* AppDelegate.swift */; };
 		40AF2CA020A0083B00DDFF2D /* ClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2C9F20A0083B00DDFF2D /* ClockViewController.swift */; };
 		40AF2CA220A0083B00DDFF2D /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AF2CA120A0083B00DDFF2D /* CanvasViewController.swift */; };
@@ -47,20 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		40AD71C820EF04E50003CB54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 40AF2C9220A0083A00DDFF2D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 40AD71C520EF04E50003CB54;
-			remoteInfo = "yourtimewatch Extension";
-		};
-		40AD71D220EF04E50003CB54 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 40AF2C9220A0083A00DDFF2D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 40AD71B920EF04E10003CB54;
-			remoteInfo = yourtimewatch;
-		};
 		40AF2CB320A0083C00DDFF2D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 40AF2C9220A0083A00DDFF2D /* Project object */;
@@ -84,20 +61,8 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				40AD71D520EF04E50003CB54 /* yourtimewatch.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		40AD71D920EF04E50003CB54 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				40AD71C720EF04E50003CB54 /* yourtimewatch Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -126,11 +91,9 @@
 		40186A5420F4441D00F88EA2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Interface.strings; sourceTree = "<group>"; };
 		409DE3DD20F4E98100F5F194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		409DE3DE20F4E98600F5F194 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
-		40AD71BA20EF04E10003CB54 /* yourtimewatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yourtimewatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AD71BD20EF04E20003CB54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		40AD71BF20EF04E40003CB54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40AD71C120EF04E40003CB54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40AD71C620EF04E50003CB54 /* yourtimewatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "yourtimewatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AD71CB20EF04E50003CB54 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		40AD71CD20EF04E50003CB54 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		40AD71CF20EF04E50003CB54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,13 +124,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		40AD71C320EF04E50003CB54 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		40AF2C9720A0083B00DDFF2D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -189,13 +145,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0DB025066440839D9C4C745 /* Pods_YourTimeUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7196526863B48220D037A44D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,8 +248,6 @@
 				40AF2C9A20A0083B00DDFF2D /* YourTime.app */,
 				40AF2CB220A0083C00DDFF2D /* YourTimeTests.xctest */,
 				40AF2CBD20A0083C00DDFF2D /* YourTimeUITests.xctest */,
-				40AD71BA20EF04E10003CB54 /* yourtimewatch.app */,
-				40AD71C620EF04E50003CB54 /* yourtimewatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -366,41 +313,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		40AD71B920EF04E10003CB54 /* yourtimewatch */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 40AD71DA20EF04E50003CB54 /* Build configuration list for PBXNativeTarget "yourtimewatch" */;
-			buildPhases = (
-				40AD71B820EF04E10003CB54 /* Resources */,
-				40AD71D920EF04E50003CB54 /* Embed App Extensions */,
-				7196526863B48220D037A44D /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				40AD71C920EF04E50003CB54 /* PBXTargetDependency */,
-			);
-			name = yourtimewatch;
-			productName = yourtimewatch;
-			productReference = 40AD71BA20EF04E10003CB54 /* yourtimewatch.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		40AD71C520EF04E50003CB54 /* yourtimewatch Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 40AD71D620EF04E50003CB54 /* Build configuration list for PBXNativeTarget "yourtimewatch Extension" */;
-			buildPhases = (
-				40AD71C220EF04E50003CB54 /* Sources */,
-				40AD71C320EF04E50003CB54 /* Frameworks */,
-				40AD71C420EF04E50003CB54 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "yourtimewatch Extension";
-			productName = "yourtimewatch Extension";
-			productReference = 40AD71C620EF04E50003CB54 /* yourtimewatch Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
-		};
 		40AF2C9920A0083B00DDFF2D /* YourTime */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40AF2CC620A0083C00DDFF2D /* Build configuration list for PBXNativeTarget "YourTime" */;
@@ -416,7 +328,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				40AD71D320EF04E50003CB54 /* PBXTargetDependency */,
 			);
 			name = YourTime;
 			productName = YourTime;
@@ -471,18 +382,6 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Kensaku Tanaka";
 				TargetAttributes = {
-					40AD71B920EF04E10003CB54 = {
-						CreatedOnToolsVersion = 9.4.1;
-					};
-					40AD71C520EF04E50003CB54 = {
-						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 1020;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
-							};
-						};
-					};
 					40AF2C9920A0083B00DDFF2D = {
 						CreatedOnToolsVersion = 9.3;
 						LastSwiftMigration = 1020;
@@ -521,30 +420,11 @@
 				40AF2C9920A0083B00DDFF2D /* YourTime */,
 				40AF2CB120A0083C00DDFF2D /* YourTimeTests */,
 				40AF2CBC20A0083C00DDFF2D /* YourTimeUITests */,
-				40AD71B920EF04E10003CB54 /* yourtimewatch */,
-				40AD71C520EF04E50003CB54 /* yourtimewatch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		40AD71B820EF04E10003CB54 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				40AD71C020EF04E40003CB54 /* Assets.xcassets in Resources */,
-				40AD71BE20EF04E20003CB54 /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		40AD71C420EF04E50003CB54 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				40AD71D020EF04E50003CB54 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		40AF2C9820A0083B00DDFF2D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -664,17 +544,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		40AD71C220EF04E50003CB54 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				402F36FC20F34BDD00FC5BCD /* Clock.swift in Sources */,
-				40AD71CE20EF04E50003CB54 /* ExtensionDelegate.swift in Sources */,
-				2E027E3C22A090F600E5E335 /* ClockList.swift in Sources */,
-				40AD71CC20EF04E50003CB54 /* InterfaceController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		40AF2C9620A0083B00DDFF2D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -717,16 +586,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		40AD71C920EF04E50003CB54 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 40AD71C520EF04E50003CB54 /* yourtimewatch Extension */;
-			targetProxy = 40AD71C820EF04E50003CB54 /* PBXContainerItemProxy */;
-		};
-		40AD71D320EF04E50003CB54 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 40AD71B920EF04E10003CB54 /* yourtimewatch */;
-			targetProxy = 40AD71D220EF04E50003CB54 /* PBXContainerItemProxy */;
-		};
 		40AF2CB420A0083C00DDFF2D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 40AF2C9920A0083B00DDFF2D /* YourTime */;
@@ -779,88 +638,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		40AD71D720EF04E50003CB54 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T5BSM6A795;
-				INFOPLIST_FILE = "yourtimewatch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
-			};
-			name = Debug;
-		};
-		40AD71D820EF04E50003CB54 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T5BSM6A795;
-				INFOPLIST_FILE = "yourtimewatch Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
-			};
-			name = Release;
-		};
-		40AD71DB20EF04E50003CB54 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T5BSM6A795;
-				IBSC_MODULE = yourtimewatch_Extension;
-				INFOPLIST_FILE = yourtimewatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
-			};
-			name = Debug;
-		};
-		40AD71DC20EF04E50003CB54 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T5BSM6A795;
-				IBSC_MODULE = yourtimewatch_Extension;
-				INFOPLIST_FILE = yourtimewatch/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.tannakaken.YourTime.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
-			};
-			name = Release;
-		};
 		40AF2CC420A0083C00DDFF2D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1108,24 +885,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		40AD71D620EF04E50003CB54 /* Build configuration list for PBXNativeTarget "yourtimewatch Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				40AD71D720EF04E50003CB54 /* Debug */,
-				40AD71D820EF04E50003CB54 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		40AD71DA20EF04E50003CB54 /* Build configuration list for PBXNativeTarget "yourtimewatch" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				40AD71DB20EF04E50003CB54 /* Debug */,
-				40AD71DC20EF04E50003CB54 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		40AF2C9520A0083A00DDFF2D /* Build configuration list for PBXProject "YourTime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
